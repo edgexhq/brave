@@ -7,16 +7,24 @@ interface whydata {
 
 const whydata: whydata[] = [
     {
-        heading: "Quality",
-        subheading: "Follow a hashtag growth total posts, videos and images.more revitions",
+        heading: "AI-Driven Efficiency",
+        subheading: "Simplifies and enhances every interview step.",
     },
     {
-        heading: "Communication",
-        subheading: "Follow a hashtag growth total posts, videos and images.more revitions",
+        heading: "Customizable and Shareable",
+        subheading: "Access tips, mock interviews, and expert insights.",
     },
     {
-        heading: "Reliability",
-        subheading: "Follow a hashtag growth total posts, videos and images.more revitions",
+        heading: "Professional Resumes",
+        subheading: "Create standout resumes that impress and pass ATS.",
+    },
+    {
+        heading: "Collaborative Community",
+        subheading: "Share resources and feedback with fellow interviewers.",
+    },
+    {
+        heading: "Top LinkedIn Jobs",
+        subheading: "Interviewers can check the top LinkedIn interviews as well in our platform",
     }
 ]
 
@@ -41,7 +49,7 @@ const Why = () => {
                         <div className="mt-10">
                             {whydata.map((items, i) => (
                                 <div className="flex mt-4" key={i}>
-                                    <div className="rounded-full h-10 w-12 flex items-center justify-center bg-circlebg">
+                                    <div className="rounded-full h-10 w-10 flex items-center justify-center bg-circlebg">
                                         <Image src="/assets/why/check.svg" alt="check-image" width={24} height={24} />
                                     </div>
                                     <div className="ml-5">

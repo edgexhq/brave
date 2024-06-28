@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="mt-32">
+      <div className="mt-32 w-full">
         <Banner />
         <Companies />
         <Buyers />

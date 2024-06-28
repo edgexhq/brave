@@ -9,10 +9,10 @@ const Banner = () => {
                 <div className="mx-auto max-w-7xl pt-16 sm:pt-20 pb-20 banner-image">
                     <div className="text-center">
                         <h1 className="text-4xl font-semibold text-navyblue sm:text-5xl  lg:text-7xl md:4px lh-96">
-                            Solve problem with an <br /> integrated agency.
+                         A Next Gen Perfect <br /> Interview Prep Suite.
                         </h1>
                         <p className="mt-6 text-lg leading-8 text-bluegray">
-                            Ehya is the Instagram analytics platform teams use to stay focused on the goals, track <br /> engagement for report your business .
+                        At Brave, we revolutionize the way you prepare for and conduct interviews. Our platform is designed <br/> to simplify and enhance every step of the interview process for both interviewers and candidates.
                         </p>
                     </div>
 
