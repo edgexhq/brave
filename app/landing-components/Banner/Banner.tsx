@@ -24,7 +24,7 @@ const Banner = () => {
                         <button type="button" className='text-15px ml-4 mt-2 text-blue transition duration-150 ease-in-out hover:text-white hover:bg-blue font-medium py-5 px-16 border border-lightgrey leafbutton'>
                             More info
                         </button>
-                        
+
                     </div>
 
                     <Image src={'/assets/banner/dashboard.svg'} alt="banner-image" width={1200} height={598} />

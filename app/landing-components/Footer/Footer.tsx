@@ -18,7 +18,7 @@ const products: ProductType[] = [
     }
 ]
 
-const footer = () => {
+const Footer = () => {
     return (
         <div className="bg-darkblue -mt-40">
             <div className="mx-auto max-w-2xl pt-48 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -90,4 +90,4 @@ const footer = () => {
     )
 }
 
-export default footer;
+export default Footer;

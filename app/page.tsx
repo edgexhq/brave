@@ -1,24 +1,30 @@
-import Banner from './components/Banner/Banner';
-import Companies from './components/Companies/Companies';
-import Buyers from './components/Buyers/index';
-import Provide from './components/Provide/index';
-import Why from './components/Why/index';
-import Network from './components/Network/index';
-import Clientsay from './components/Clientsay/index';
-import Newsletter from './components/Newsletter/Newsletter';
+import Banner from './landing-components/Banner/Banner';
+import Companies from './landing-components/Companies/Companies';
+import Buyers from './landing-components/Buyers/index';
+import Provide from './landing-components/Provide/index';
+import Why from './landing-components/Why/index';
+import Network from './landing-components/Network/index';
+import Clientsay from './landing-components/Clientsay/index';
+import Newsletter from './landing-components/Newsletter/Newsletter';
+import Navbar from './landing-components/Navbar/Navbar';
+import Footer from './landing-components/Footer/Footer';
 
 
 export default function Home() {
   return (
-    <main>
-      <Banner />
-      <Companies />
-      <Buyers />
-      <Provide />
-      <Why />
-      <Network />
-      <Clientsay />
-      <Newsletter />
-    </main>
+    <>
+      <Navbar />
+      <div className="mt-32">
+        <Banner />
+        <Companies />
+        <Buyers />
+        <Provide />
+        <Why />
+        <Network />
+        <Clientsay />
+        <Newsletter />
+      </div>
+      <Footer />
+    </>
   )
 }
