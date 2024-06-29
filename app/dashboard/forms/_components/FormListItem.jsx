@@ -38,7 +38,7 @@ function FormListItem({ formRecord, jsonForm, refreshData }) {
     }
   };
   return (
-    <div className="border shadow-sm rounded-lg p-4">
+    <div className="border hover:scale-105 transition-all duration-500 hover:shadow-md shadow-sm rounded-lg p-4">
       <div className="flex justify-between">
         <h2></h2>
 
@@ -66,8 +66,10 @@ function FormListItem({ formRecord, jsonForm, refreshData }) {
           </AlertDialogContent>
         </AlertDialog>
       </div>
-      <h2 className="text-lg text-black">{jsonForm?.formTitle}</h2>
-      <h2 className="text-sm text-gray-500">{jsonForm?.formHeading}</h2>
+      <h2 className="text-lg text-black line-clamp-1">{jsonForm?.formTitle}</h2>
+      <h2 className="text-sm text-gray-500 line-clamp-1">
+        {jsonForm?.formHeading}
+      </h2>
       <hr className="my-4"></hr>
       <div className="flex justify-between">
         <RWebShare

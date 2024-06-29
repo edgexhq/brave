@@ -7,10 +7,10 @@ function DashboardLayout({ children }) {
   return (
     <SignedIn>
       <div className="w-full">
-        <div className="md:w-64 fixed">
+        {/* <div className="md:w-64 fixed">
           <SideNav />
-        </div>
-        <div className="md:ml-64">{children}</div>
+        </div> */}
+        <div>{children}</div>
       </div>
     </SignedIn>
   );
