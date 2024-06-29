@@ -13,7 +13,7 @@ export default function InterviewList() {
 
   useEffect(() => {
     user && GetInterviewList();
-  });
+  }, [user]);
 
   const GetInterviewList = async () => {
     const result = await db
