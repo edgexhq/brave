@@ -4,7 +4,6 @@ import Link from "next/link";
 import { MenuIcon } from "lucide-react";
 import { useState } from "react";
 import NavLink from "./NavLink";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -23,30 +22,22 @@ const Navbar = () => {
       path: "/aboutus",
     },
     {
-      title: "Contributors",
-      path: "/contributors",
-    },
-    {
-      title: "Contact",
-      path: "/contact",
-    },
-    {
       title: "Review Us",
       path: "/review",
     },
   ];
   return (
     <>
-      <header className="border-b sticky top-0 z-[99] bg-background/40 backdrop-blur-md">
+      <header className="sticky w-full top-0 z-[99] bg-background/40 backdrop-blur-md border-b">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
               <Link className="block text-primary" href="/">
                 <span className="sr-only">Home</span>
                 <Image
-                  src="/android-chrome-512x512.png"
+                  src="/next.svg"
                   alt="Logo"
-                  width={50}
+                  width={70}
                   height={50}
                 />
               </Link>
@@ -72,11 +63,11 @@ const Navbar = () => {
 
             <div className="flex items-center gap-4">
               <div className="flex gap-4">
-                <Button asChild size="lg" variant="secondary">
+                <Button size="lg" variant="secondary">
                   <Link href="/sign-in">Login</Link>
                 </Button>
                 <div className="hidden sm:flex">
-                  <Button asChild size="lg" variant="secondary">
+                  <Button size="lg" variant="secondary">
                     /<Link href="/sign-up">Sign Up</Link>
                   </Button>
                 </div>

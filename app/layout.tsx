@@ -1,27 +1,27 @@
-import './globals.css';
-import { ClerkProvider } from '@clerk/nextjs';
-import { Toaster } from "sonner"
+import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
 
 export const metadata = {
-  title: 'Brave',
-  description: 'Your Next gen AI interview prep and taking platform',
-}
+  title: "Brave",
+  description: "Your Next gen AI interview prep and taking platform",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <ClerkProvider>
       <html lang="en">
         <body>
-          <main className="flex min-h-screen flex-col items-center justify-between bg-white w-[100vw]">
+          <main className="flex min-h-screen flex-col items-center justify-between bg-white">
             {children}
           </main>
           <Toaster />
         </body>
       </html>
     </ClerkProvider>
-  )
+  );
 }
