@@ -87,7 +87,6 @@ function FormListItem({ formRecord, jsonForm, refreshData }) {
         </RWebShare>
         <Link href={"/edit-form/" + formRecord?.id}>
           <Button className="flex gap-2" size="sm">
-            {" "}
             <Edit className="h-5 w-5" /> Edit
           </Button>
         </Link>
