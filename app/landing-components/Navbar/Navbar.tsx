@@ -28,16 +28,16 @@ const Navbar = () => {
   ];
   return (
     <>
-      <header className="sticky w-full top-0 z-[99] bg-background/40 backdrop-blur-md border">
+      <header className="sticky w-full top-0 z-[99] bg-background/40 backdrop-blur-md border-b">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
               <Link className="block text-primary" href="/">
                 <span className="sr-only">Home</span>
                 <Image
-                  src="/android-chrome-512x512.png"
+                  src="/next.svg"
                   alt="Logo"
-                  width={50}
+                  width={70}
                   height={50}
                 />
               </Link>
