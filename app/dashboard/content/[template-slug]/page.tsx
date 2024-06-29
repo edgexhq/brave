@@ -64,7 +64,7 @@ function CreateNewContent(props: PROPS) {
 
     return (
         <div className='p-5'>
-            <Link href={"/dashboard"}>
+            <Link href={"/dashboard/content"}>
                 <Button> <ArrowLeft /> Back</Button>
             </Link>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-5 py-5 '>
