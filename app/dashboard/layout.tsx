@@ -2,7 +2,6 @@
 import {
   BarChart,
   Bell,
-  File,
   Bot,
   Home,
   LinkedinIcon,
