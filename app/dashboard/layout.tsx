@@ -2,6 +2,7 @@
 import {
   BarChart,
   Bell,
+  Bot,
   Home,
   LinkedinIcon,
   Mail,
@@ -75,6 +76,11 @@ export default function DashLayout({
       name: "emailer",
       icon: <Mail size={16} />,
       link: "/dashboard/emailer",
+    },
+    {
+      name: "chatbot",
+      icon: <Bot size={16} />,
+      link: "/dashboard/chatbot",
     },
   ];
 
