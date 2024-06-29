@@ -3,6 +3,7 @@ import {
   BarChart,
   Bell,
   File,
+  Bot,
   Home,
   LinkedinIcon,
   Mail,
@@ -28,7 +29,6 @@ import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
-import { TableCellsIcon } from "@heroicons/react/20/solid";
 import { usePathname } from "next/navigation";
 
 const inter = Space_Grotesk({ subsets: ["latin"] });
@@ -77,6 +77,11 @@ export default function DashLayout({
       name: "emailer",
       icon: <Mail size={16} />,
       link: "/dashboard/emailer",
+    },
+    {
+      name: "chatbot",
+      icon: <Bot size={16} />,
+      link: "/dashboard/chatbot",
     },
   ];
 
