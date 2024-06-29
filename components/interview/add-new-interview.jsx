@@ -51,7 +51,6 @@ function AddNewInterview() {
       .text()
       .replace("```json", "")
       .replace("```", "");
-    console.log(JSON.parse(MockJsonResp));
     setJsonResponse(MockJsonResp);
 
     const mckId = nanoid(12);

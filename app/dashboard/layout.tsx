@@ -1,5 +1,16 @@
 "use client";
-import { Bell, Home, Menu, Package, Search, Speech } from "lucide-react";
+import {
+  BarChart,
+  Bell,
+  Home,
+  LinkedinIcon,
+  Mail,
+  Menu,
+  Newspaper,
+  Search,
+  Speech,
+  TableProperties,
+} from "lucide-react";
 
 import { Space_Grotesk } from "next/font/google";
 import Link from "next/link";
@@ -16,7 +27,6 @@ import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
-import { TableCellsIcon } from "@heroicons/react/20/solid";
 import { usePathname } from "next/navigation";
 
 const inter = Space_Grotesk({ subsets: ["latin"] });
@@ -27,7 +37,49 @@ export default function DashLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  console.log(pathname);
+  const paths = pathname.split("/")?.toReversed();
+  console.log(paths[0]);
+
+  const pathArray = [
+    {
+      name: "dashboard",
+      icon: <Home size={16} />,
+      link: "/dashboard",
+    },
+    {
+      name: "interview",
+      icon: <Speech size={16} />,
+      link: "/dashboard/interview",
+    },
+    {
+      name: "ai forms",
+      icon: <TableProperties size={16} />,
+      link: "/dashboard/forms",
+    },
+    {
+      name: "content",
+      icon: <BarChart size={16} />,
+      link: "/dashboard/content",
+    },
+    {
+      name: "toplinkedin",
+      icon: <LinkedinIcon size={16} />,
+      link: "/dashboard/toplinkedin",
+    },
+    {
+      name: "headlines",
+      icon: <Newspaper size={16} />,
+      link: "/dashboard/headlines",
+    },
+    {
+      name: "emailer",
+      icon: <Mail size={16} />,
+      link: "/dashboard/emailer",
+    },
+  ];
+
+  const activePath = pathArray.filter((path) => path.name === paths[0])[0];
+
   return (
     <div className="grid h-screen overflow-hidden w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-muted/40 md:block">
@@ -43,7 +95,7 @@ export default function DashLayout({
               <span className="">Brave Inc</span>
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
-              <Bell color="#e5d70d" fill="#e5d70d" className="h-4 w-4" />
+              <Bell color="#e5d70d" fill="#e5d70d" size={16} />
               <span className="sr-only">Toggle notifications</span>
             </Button>
           </div>
@@ -54,58 +106,20 @@ export default function DashLayout({
                 " grid items-start px-2 text-sm font-medium lg:px-4"
               }
             >
-              <Link
-                href="/dashboard"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-              >
-                <Home className="h-4 w-4" />
-                dashboard.
-              </Link>
-              <Link
-                href="/dashboard/interview"
-                className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
-              >
-                <Speech className="h-4 w-4" />
-                mock interview.
-              </Link>
-              <Link
-                href="/dashboard/forms"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-              >
-                <TableCellsIcon className="h-4 w-4" />
-                ai forms.
-              </Link>
-              <Link
-                href="/dashboard/content"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-              >
-                <Home className="h-4 w-4" />
-                content.
-              </Link>
-
-              <Link
-                href="/dashboard/toplinkedin"
-                className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
-              >
-                <Package className="h-4 w-4" />
-                top jobs.
-              </Link>
-
-              <Link
-                href="/dashboard/headlines"
-                className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
-              >
-                <Package className="h-4 w-4" />
-                headlines.
-              </Link>
-
-              <Link
-                href="/dashboard/emailer"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-              >
-                <Home className="h-4 w-4" />
-                email scheduler.
-              </Link>
+              {pathArray.map((path) => (
+                <Link
+                  href={path.link}
+                  className={
+                    "flex items-center gap-2 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground " +
+                    (path.name === activePath.name
+                      ? "bg-secondary text-primary border"
+                      : "")
+                  }
+                >
+                  {path.icon}
+                  {path.name}.
+                </Link>
+              ))}
             </nav>
           </div>
           <div className="mt-auto p-4">
