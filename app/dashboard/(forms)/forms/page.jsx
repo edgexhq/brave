@@ -1,5 +1,5 @@
-import CreateForm from "./_components/CreateForm";
-import FormList from "./_components/FormList";
+import CreateForm from "@/components/forms/CreateForm";
+import FormList from "@/components/forms/FormList";
 
 function Dashboard() {
   return (

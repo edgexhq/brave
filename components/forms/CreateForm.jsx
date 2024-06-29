@@ -1,28 +1,29 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/app/components/ui/dialog";
-import { Button } from "@/app/components/ui/button";
-import { Textarea } from "@/app/components/ui/textarea";
-import { AiChatSession } from "@/app/configs/AiModal";
+} from "@/components/ui/dialog";
+import { Textarea } from "@/components/ui/textarea";
+import { db } from "@/lib/utils/db";
+import { AiChatSession } from "@/lib/utils/form-gemini";
+import { JsonForms } from "@/lib/utils/schema";
 import { useUser } from "@clerk/nextjs";
-import { db } from "@/app/configs";
-import { JsonForms } from "@/app/configs/schema";
+import { desc, eq } from "drizzle-orm";
+import { Loader2 } from "lucide-react";
 import moment from "moment/moment";
 import { useRouter } from "next/navigation";
-import { Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { desc, eq } from "drizzle-orm";
 
 const PROMPT =
-  ",On Basis of description create JSON form with formTitle, formHeading along with fieldName, FieldTitle,FieldType, Placeholder, label , required fields, and checkbox and select field type options will be in array only and in JSON format";
-function CreateForm() {
+  "On Basis of description create JSON form with formTitle, formHeading along with fieldName, FieldTitle, FieldType, Placeholder, label , required fields, and checkbox and select field type options will be in array only and in JSON format";
+
+export default function CreateForm() {
   const [openDialog, setOpenDailog] = useState(false);
   const [userInput, setUserInput] = useState();
   const [loading, setLoading] = useState();
@@ -66,7 +67,7 @@ function CreateForm() {
 
       console.log("New Form ID", resp[0].id);
       if (resp[0].id) {
-        route.push("/dashboard/form/edit-form/" + resp[0].id);
+        route.push("/dashboard/edit-form/" + resp[0].id);
       }
       setLoading(false);
     }
@@ -103,5 +104,3 @@ function CreateForm() {
     </div>
   );
 }
-
-export default CreateForm;

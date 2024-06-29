@@ -14,8 +14,8 @@ import {
   AlertDialogTrigger,
 } from "@/app/components/ui/alert-dialog";
 import { useUser } from "@clerk/nextjs";
-import { db } from "@/app/configs";
-import { JsonForms } from "@/app/configs/schema";
+import { db } from "@/lib/utils/db";
+import { JsonForms } from "@/lib/utils/schema";
 import { and, eq } from "drizzle-orm";
 import { toast } from "sonner";
 import { RWebShare } from "react-web-share";
@@ -85,11 +85,11 @@ function FormListItem({ formRecord, jsonForm, refreshData }) {
             <Share size={17} /> Share
           </Button>
         </RWebShare>
-        <Link href={"/dashboard/edit-form/" + formRecord?.id}>
+        <a href={"/dashboard/edit-form/" + formRecord?.id}>
           <Button className="flex gap-2" size="sm">
             <Edit size={17} /> Edit
           </Button>
-        </Link>
+        </a>
       </div>
     </div>
   );

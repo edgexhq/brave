@@ -1,18 +1,18 @@
 "use client";
-import { db } from "@/app/configs";
-import { JsonForms } from "@/app/configs/schema";
+
+import { Button } from "@/components/ui/button";
+import Controller from "@/components/forms/edit-form/Controller";
+import FormUi from "@/components/forms/edit-form/FormUi";
+import { db } from "@/lib/utils/db";
+import { JsonForms } from "@/lib/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import { and, eq } from "drizzle-orm";
 import { ArrowLeft, Share2, SquareArrowOutUpRight } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import FormUi from "../_components/FormUi";
-import { fromJSON } from "postcss";
-import { toast } from "sonner";
-import Controller from "../_components/Controller";
-import { Button } from "@/app/components/ui/button";
-import Link from "next/link";
 import { RWebShare } from "react-web-share";
+import { toast } from "sonner";
 
 function EditForm({ params }) {
   const { user } = useUser();
@@ -74,7 +74,7 @@ function EditForm({ params }) {
       )
       .returning({ id: JsonForms.id });
 
-    toast.success("Updated!!!");
+    toast.success("Updated");
     console.log(result);
   };
 
@@ -159,7 +159,7 @@ function EditForm({ params }) {
           />
         </div>
         <div
-          className="md:col-span-2 border rounded-lg p-5 
+          className="md:col-span-2 border rounded-lg p-5
              flex items-center justify-center"
           style={{
             backgroundImage: selectedBackground,

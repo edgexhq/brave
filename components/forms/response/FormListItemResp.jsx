@@ -1,9 +1,9 @@
 import { Button } from "@/app/components/ui/button";
-import { db } from "../../../../configs";
-import { userResponses } from "../../../../configs/schema";
+import { db } from "@/lib/utils/db";
+import { userResponses } from "@/lib/utils/schema";
 import { eq } from "drizzle-orm";
 import { HardDriveDownload, Loader2 } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
 import * as XLSX from "xlsx";
 
 export function FormListItemResp({ jsonForm, formRecord }) {
