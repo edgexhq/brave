@@ -17,10 +17,6 @@
   border-radius: 10px;
 }
 
-html {
-  overflow-y: hidden;
-}
-
 /* For Firefox */
 * {
   scrollbar-width: thin;
