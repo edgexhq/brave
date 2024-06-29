@@ -17,6 +17,7 @@ import {
   UsersIcon,
 } from "lucide-react";
 import Welcome from "@/components/Welcome";
+import Link from "next/link";
 type Props = {};
 
 export default function Dashboard({}: Props) {
@@ -42,8 +43,10 @@ export default function Dashboard({}: Props) {
               </div>
             </CardHeader>
             <CardContent>
-              <Button size={"sm"}>
-                Prepare <ArrowRight size={18} />
+              <Button size={"sm"} asChild>
+                <Link href="/dashboard/interview">
+                  Prepare <ArrowRight size={18} />
+                </Link>
               </Button>
             </CardContent>
           </Card>
@@ -58,9 +61,11 @@ export default function Dashboard({}: Props) {
               </div>
             </CardHeader>
             <CardContent>
-              <Button size={"sm"}>
-                Create
-                <ArrowRight size={18} />
+              <Button asChild size={"sm"}>
+                <Link href="/dashboard/forms">
+                  Create
+                  <ArrowRight size={18} />
+                </Link>
               </Button>
             </CardContent>
           </Card>
