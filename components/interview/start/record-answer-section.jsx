@@ -98,7 +98,7 @@ export default function RecordAnswerSection({
 
   return (
     <div className="flex items-center justify-center flex-col">
-      <div className="flex flex-col mt-20 justify-center items-center bg-black rounded-lg p-5">
+      <div className="flex flex-col justify-center items-center bg-black rounded-lg p-5">
         <Image
           src={"/webcam.png"}
           width={200}
@@ -109,7 +109,7 @@ export default function RecordAnswerSection({
         <Webcam
           mirrored={true}
           style={{
-            height: 500,
+            height: 300,
             width: 500,
             zIndex: 10,
           }}
