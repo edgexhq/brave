@@ -1,17 +1,9 @@
-import {
-  Bell,
-  Home,
-  LineChart,
-  Menu,
-  Package,
-  Package2,
-  Search,
-  ShoppingCart,
-  Users,
-} from "lucide-react";
+"use client";
+import { Bell, Home, Menu, Package, Search, Speech } from "lucide-react";
+
+import { Space_Grotesk } from "next/font/google";
 import Link from "next/link";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -23,28 +15,45 @@ import {
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { UserButton } from "@clerk/nextjs";
+import Image from "next/image";
+import { TableCellsIcon } from "@heroicons/react/20/solid";
+import { usePathname } from "next/navigation";
+
+const inter = Space_Grotesk({ subsets: ["latin"] });
 
 export default function DashLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  console.log(pathname);
   return (
     <div className="grid h-screen overflow-hidden w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <Link href="/" className="flex items-center gap-2 font-semibold">
-              <Package2 className="h-6 w-6" />
+            <Link href="/" className="flex items-center gap-1 font-semibold">
+              <Image
+                src={"/logo-base-256x256.png"}
+                width={32}
+                height={32}
+                alt="Brave Inc"
+              />
               <span className="">Brave Inc</span>
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
-              <Bell className="h-4 w-4" />
+              <Bell color="#e5d70d" fill="#e5d70d" className="h-4 w-4" />
               <span className="sr-only">Toggle notifications</span>
             </Button>
           </div>
           <div className="flex-1">
-            <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+            <nav
+              className={
+                inter.className +
+                " grid items-start px-2 text-sm font-medium lg:px-4"
+              }
+            >
               <Link
                 href="/dashboard"
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
@@ -56,15 +65,15 @@ export default function DashLayout({
                 href="/dashboard/interview"
                 className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
               >
-                <Package className="h-4 w-4" />
+                <Speech className="h-4 w-4" />
                 mock interview.
               </Link>
               <Link
                 href="/dashboard/forms"
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
               >
-                <Home className="h-4 w-4" />
-                forms.
+                <TableCellsIcon className="h-4 w-4" />
+                ai forms.
               </Link>
               <Link
                 href="/dashboard/content"
@@ -118,7 +127,7 @@ export default function DashLayout({
         </div>
       </div>
       <div className="flex flex-col">
-        <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+        <header className="flex h-14 items-center gap-4 border-b bg-transparent px-4 lg:h-[60px] lg:px-6">
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -145,7 +154,7 @@ export default function DashLayout({
                   <Home className="h-5 w-5" />
                   Dashboard
                 </Link>
-                
+
                 <Link
                   href="/dashboard/interview"
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
@@ -159,7 +168,7 @@ export default function DashLayout({
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
                 >
                   <Home className="h-5 w-5" />
-                  Forms
+                  AI Forms
                 </Link>
 
                 <Link
@@ -226,7 +235,7 @@ export default function DashLayout({
           </div>
           <UserButton />
         </header>
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 max-h-screen overflow-y-scroll">
+        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 max-h-screen overflow-y-scroll">
           {children}
         </main>
       </div>
