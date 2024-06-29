@@ -74,7 +74,7 @@ function EditForm({ params }) {
       )
       .returning({ id: JsonForms.id });
 
-    toast("Updated!!!");
+    toast.success("Updated!!!");
     console.log(result);
   };
 
@@ -102,7 +102,7 @@ function EditForm({ params }) {
       )
       .returning({ id: JsonForms.id });
 
-    toast("Updated!!!");
+    toast.success("Updated!!!");
   };
 
   return (

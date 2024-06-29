@@ -27,7 +27,7 @@ function LiveAiForm({ params }) {
   };
   return (
     <div
-      className="p-10 flex justify-center items-center"
+      className="p-10 flex justify-center items-center w-full"
       style={{
         backgroundImage: record?.background,
       }}
@@ -45,14 +45,11 @@ function LiveAiForm({ params }) {
         />
       )}
       <Link
-        className="flex gap-2 items-center
-         bg-black text-white px-3 py-1 rounded-full
-         fixed bottom-5 left-5 cursor-pointer 
-         "
+        className="flex gap-2 items-center bg-zinc-800/30 backdrop-blur-md text-white px-3 py-1 rounded-full fixed bottom-5 left-5 cursor-pointer text-xs"
         href={"/"}
       >
-        <Image src={"/logo.png"} width={26} height={26} />
-        Build your Own AI form
+        Made using Brave{" "}
+        <Image src={"/logo-base-256x256.png"} width={26} height={26} />
       </Link>
     </div>
   );
