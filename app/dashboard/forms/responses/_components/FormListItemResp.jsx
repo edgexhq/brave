@@ -1,6 +1,6 @@
-import Button from "../../../components/ui/button";
-import { db } from "../../../configs";
-import { userResponses } from "../../../configs/schema";
+import { Button } from "@/app/components/ui/button";
+import { db } from "../../../../configs";
+import { userResponses } from "../../../../configs/schema";
 import { eq } from "drizzle-orm";
 import { Loader2 } from "lucide-react";
 import React, { useState } from "react";

@@ -1,10 +1,10 @@
 const {
-    GoogleGenerativeAI,
-    HarmCategory,
-    HarmBlockThreshold,
-  } = require("@google/generative-ai");
+  GoogleGenerativeAI,
+  HarmCategory,
+  HarmBlockThreshold,
+} = require("@google/generative-ai");
 
-  const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
@@ -39,8 +39,8 @@ const safetySettings = [
 ];
 
 
-export const AiChatSession=model.startChat({
-    generationConfig,
-    safetySettings,
-    history:[]
+export const AiChatSession = model.startChat({
+  generationConfig,
+  safetySettings,
+  history: []
 })
