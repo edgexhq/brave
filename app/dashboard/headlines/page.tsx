@@ -57,6 +57,7 @@ const page = () => {
                   {news.description}
                 </p>
               </div>
+
             </div>
           );
         })}
