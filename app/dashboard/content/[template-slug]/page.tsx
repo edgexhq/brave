@@ -27,6 +27,7 @@ interface PROPS {
 
 function CreateNewContent(props: PROPS) {
 
+    // @ts-expect-error
     const selectedTemplate: TEMPLATE | undefined = Templates?.find((item) => item.slug === props.params['template-slug']);
 
     const [loading, setLoading] = useState(false);

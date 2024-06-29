@@ -28,7 +28,7 @@ function OutputSection({aiOutput}:props) {
         ref={editorRef}
         initialValue="Your result will appear here"
         initialEditType="wysiwyg"
-        height="600px"
+        height="400px"
         useCommandShortcut={true}
         onChange={()=>console.log(editorRef.current.getInstance().getMarkdown())}
       />
