@@ -1,5 +1,5 @@
 "use client";
-import FormUi from "../../../app/dashboard/edit-form/_components/FormUi";
+import FormUi from "@/app/dashboard/edit-form/_components/FormUi";
 import { db } from "../../configs";
 import { JsonForms } from "../../configs/schema";
 import { eq } from "drizzle-orm";
@@ -27,7 +27,7 @@ function LiveAiForm({ params }) {
   };
   return (
     <div
-      className="p-10 flex justify-center items-center w-full"
+      className="p-10 flex justify-center items-center"
       style={{
         backgroundImage: record?.background,
       }}
