@@ -8,18 +8,20 @@ import Clientsay from "./landing-components/Clientsay/index";
 import Newsletter from "./landing-components/Newsletter/Newsletter";
 import Navbar from "./landing-components/Navbar/Navbar";
 import Footer from "./landing-components/Footer/Footer";
+import { World } from "@/components/ui/Globe";
+import { Worldwide } from "./landing-components/Worldwide";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="mt-32 w-full">
+      <div className="mt-14 w-full">
         <Banner />
         <Companies />
         <Buyers />
         <Provide />
         <Why />
-        <Network />
+        <Worldwide />
         <Clientsay />
         <Newsletter />
       </div>
