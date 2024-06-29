@@ -9,7 +9,7 @@
     "lint": "next lint",
     "db:push": "bunx drizzle-kit push",
     "db:studio": "bunx drizzle-kit studio",
-    "clean" : "rm -rf .next"
+    "clean": "rm -rf .next"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.34",
