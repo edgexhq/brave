@@ -2,7 +2,7 @@ import { Button } from "@/app/components/ui/button";
 import { db } from "../../../../configs";
 import { userResponses } from "../../../../configs/schema";
 import { eq } from "drizzle-orm";
-import { Loader2 } from "lucide-react";
+import { HardDriveDownload, Loader2 } from "lucide-react";
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
 
@@ -29,9 +29,6 @@ export function FormListItemResp({ jsonForm, formRecord }) {
     exportToExcel(jsonData);
   };
 
-  /**
-   * Convert Json to Excel and then Donwload it
-   */
   const exportToExcel = (jsonData) => {
     const worksheet = XLSX.utils.json_to_sheet(jsonData);
     const workbook = XLSX.utils.book_new();
@@ -41,21 +38,27 @@ export function FormListItemResp({ jsonForm, formRecord }) {
   };
 
   return (
-    <div className="border shadow-sm rounded-lg p-4 my-5">
-      <h2 className="text-lg text-black">{jsonForm?.formTitle}</h2>
-      <h2 className="text-sm text-gray-500">{jsonForm?.formHeading}</h2>
+    <div className="border min-w-60 shadow-sm rounded-lg p-4 my-5 hover:scale-105 transition-all duration-500">
+      <h2 className="text-lg text-black font-semibold">
+        {jsonForm?.formTitle}
+      </h2>
+      <h2 className="text-sm pb-2 text-gray-500">{jsonForm?.formHeading}</h2>
       <hr className="my-4"></hr>
       <div className="flex justify-between items-center">
-        <h2 className="text-sm">
-          <strong>45</strong> Responses
-        </h2>
+        <h2 className="text-sm text-green-500">as XLSX</h2>
         <Button
           className=""
           size="sm"
           onClick={() => ExportData()}
           disabled={loading}
         >
-          {loading ? <Loader2 className="animate-spin" /> : "Export"}
+          {loading ? (
+            <Loader2 className="animate-spin" />
+          ) : (
+            <div className="flex items-center justify-center gap-2">
+              <p>Export</p> <HardDriveDownload size={18} />
+            </div>
+          )}
         </Button>
       </div>
     </div>
