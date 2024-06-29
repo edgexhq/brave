@@ -3,7 +3,6 @@ import type { Config } from "tailwindcss";
 const config = {
   darkMode: ["class"],
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./landing-components/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -25,7 +24,6 @@ const config = {
         current: "currentColor",
         white: "#ffffff",
         black: "#000000",
-        blue: "#0075FF",
         lightblue: "#DAEBFF",
         lightgrey: "#AEC7E4",
         navyblue: "#002834",
@@ -34,7 +32,6 @@ const config = {
         darkblue: " #000321",
         offwhite: "rgba(255, 255, 255, 0.75);",
         bordertop: "rgba(196, 196, 196, 0.5);",
-        "blue-500": "#0075FF",
         darkgray: "#90A3B4",
         babyblue: "#E2F3F9",
         grey500: "#ECECEC",

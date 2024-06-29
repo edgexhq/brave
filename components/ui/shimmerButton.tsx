@@ -33,7 +33,7 @@ const ShimmerButton = ({ children }: any) => {
         scale: 1.05,
       }}
     >
-      <span className="m-[0.125rem] text-4xl rounded-tr-2xl rounded-b-2xl bg-[#139ef4] px-8 py-4 text-[#f6f6f6] backdrop-blur-sm">
+      <span className="m-[0.125rem] text-3xl rounded-tr-2xl rounded-b-2xl bg-[#139ef4] px-8 py-4 text-[#f6f6f6] backdrop-blur-sm">
         {children}
       </span>
     </motion.button>

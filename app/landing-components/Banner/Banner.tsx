@@ -1,24 +1,41 @@
+"use client";
 import Blobby from "@/app/components/ui/blobby";
 import ShimmerButton from "@/components/ui/shimmerButton";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
     <main>
       <div className="px-6 lg:px-8">
-        <Blobby className="bg-blue-400/60 top-12 left-10" />
-        <div className="mx-auto max-w-7xl pt-16 sm:pt-20 pb-20 banner-image">
+        <Blobby className="bg-purple-500/60 top-12 left-10" />
+        <Blobby className="bg-yellow-300/60 h-32  bottom-20 left-40" />
+        <Blobby className="bg-green-400/60 top-12 right-10" />
+        <Blobby className="bg-cyan-500/60 bottom-3 right-52" />
+        <div className="mx-auto max-w-7xl pt-14 sm:pt-16 pb-20 banner-image">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-navyblue sm:text-5xl lg:text-7xl md:4px">
-              A Next Gen Perfect <br /> Interview Prep Suite.
-            </h1>
-            <p className="mt-6 text-lg max-w-prose text-center mx-auto leading-8 text-bluegray">
-              At Brave, we revolutionize the way you prepare for and conduct
-              interviews. Our platform is designed to simplify and enhance every
-              step of the interview process for both interviewers and
-              candidates.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: -4 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-4xl font-bold tracking-tight max-w-4xl mx-auto text-navyblue sm:text-5xl lg:text-7xl md:4px">
+                Power your interviews with{" "}
+                <span className="text-primary">Brave</span> AI
+              </h1>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.6, delay: 0.5 }}
+            >
+              <p className="mt-6 text-lg max-w-prose text-center mx-auto leading-8 text-bluegray">
+                Dont be afraid! You can ace that interview! You can crack the
+                job! we got you covered. BE Smarter! Be Brave, Use{" "}
+                <span className="text-primary font-bold">Brave</span>!
+              </p>
+            </motion.div>
           </div>
 
           <div className="text-center mt-5">
