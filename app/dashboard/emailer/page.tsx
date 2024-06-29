@@ -1,19 +1,20 @@
 "use client";
 
-import FormSection from "../content/_components/FormSection";
+import FormSectioEmailer from '@/components/emailer/FormSectionEmailer';
 import { useState } from 'react'
 import { TEMPLATE } from '@/components/content/TemplateListSection'
 import Templates from '@/app/(data)/Templates'
 import { chatSession } from "@/lib/utils/gemini-model";
 import { db } from "@/lib/utils/db";
 import { AIOutput } from "@/lib/utils/schema";
-import OutputSection from "../content/_components/OutputSection";
 import moment from 'moment'
 import { useUser } from '@clerk/nextjs'
 import { Input } from "@/components/ui/input";
 import InputBar from "@/components/ui/InputBar";
 import { Button } from "@/components/ui/button";
 import { CirclePlus } from "lucide-react";
+import dynamic from "next/dynamic";
+const OutputSection = dynamic(() => import('../content/_components/OutputSection'), { ssr: false });
 
 const page = () => {
 
@@ -95,7 +96,7 @@ const page = () => {
             </div>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-5 mb-20'>
                 {/* FormSection  */}
-                <FormSection
+                <FormSectioEmailer
                     selectedTemplate={selectedTemplate}
                     userFormInput={(v: any) => GenerateAIContent(v)}
                     loading={loading} />
