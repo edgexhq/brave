@@ -9,18 +9,17 @@ import {
 } from "@/components/ui/card";
 import {
   ArrowRight,
-  BarChartIcon,
-  BriefcaseIcon,
-  FileTextIcon,
   Speech,
   TableProperties,
-  UsersIcon,
 } from "lucide-react";
 import Welcome from "@/components/Welcome";
 import Link from "next/link";
+import TemplateCard from "@/components/content/TemplateCard";
+import Templates from '@/app/(data)/Templates'
+
 type Props = {};
 
-export default function Dashboard({}: Props) {
+export default function Dashboard({ }: Props) {
   return (
     <>
       <div className="w-full bg-muted/40 flex flex-col gap-8 md:p-8">
@@ -31,7 +30,7 @@ export default function Dashboard({}: Props) {
         >
           <Welcome />
         </Suspense>
-        <div className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-4">
           <Card className="hover:-translate-y-1 duration-500 transition-all border border-purple-500">
             <CardHeader className="flex gap-4">
               <Speech size={50} />
@@ -74,71 +73,11 @@ export default function Dashboard({}: Props) {
           <h2 className="text-2xl md:text-3xl font-semibold py-2 text-zinc-700">
             Trending Tools :
           </h2>
-          <div className="max-w-5xl mx-auto w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <Card>
-              <CardHeader className="flex items-center gap-4">
-                <BriefcaseIcon className="w-8 h-8" />
-                <div>
-                  <CardTitle>Projects</CardTitle>
-                  <CardDescription>
-                    Manage your ongoing projects and initiatives.
-                  </CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <Button size={"sm"} variant={"secondary"}>
-                  View Projects
-                </Button>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex items-center gap-4">
-                <UsersIcon className="w-8 h-8" />
-                <div>
-                  <CardTitle>Team</CardTitle>
-                  <CardDescription>
-                    Stay connected with your team members.
-                  </CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <Button size={"sm"} variant={"secondary"}>
-                  View Team
-                </Button>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex items-center gap-4">
-                <FileTextIcon className="w-8 h-8" />
-                <div>
-                  <CardTitle>Documents</CardTitle>
-                  <CardDescription>
-                    Access and manage your important documents.
-                  </CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <Button size={"sm"} variant={"secondary"}>
-                  View Documents
-                </Button>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex items-center gap-4">
-                <BarChartIcon className="w-8 h-8" />
-                <div>
-                  <CardTitle>Analytics</CardTitle>
-                  <CardDescription>
-                    Gain insights into your data and performance.
-                  </CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <Button size={"sm"} variant={"secondary"}>
-                  View Analytics
-                </Button>
-              </CardContent>
-            </Card>
+          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-10 mb-12'>
+            {/* @ts-ignore */}
+            {Templates.slice(0, 8).map((item: TEMPLATE) => (
+              <TemplateCard {...item} />
+            ))}
           </div>
         </div>
       </div>

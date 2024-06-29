@@ -20,7 +20,7 @@ const products: ProductType[] = [
 
 const Footer = () => {
   return (
-    <div className="bg-darkblue -mt-40">
+    <div className="bg-darkblue -mt-40 w-full">
       <div className="mx-auto max-w-2xl pt-48 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="my-24 grid grid-cols-1 gap-y-10 gap-x-16 sm:grid-cols-2 lg:grid-cols-12 xl:gap-x-8">
           {/* COLUMN-1 */}
@@ -91,7 +91,7 @@ const Footer = () => {
                 height={24}
               />
               <h5 className="text-base font-normal text-offwhite">
-                925 Filbert Street Pennsylvania 18072
+                Built for Hack4Bengal3.0
               </h5>
             </div>
             <div className="flex gap-2 mt-10">
@@ -102,7 +102,7 @@ const Footer = () => {
                 height={24}
               />
               <h5 className="text-base font-normal text-offwhite">
-                + 45 34 11 44 11
+                +91 86373 73116
               </h5>
             </div>
             <div className="flex gap-2 mt-10">
@@ -113,7 +113,7 @@ const Footer = () => {
                 height={24}
               />
               <h5 className="text-base font-normal text-offwhite">
-                info@gmail.com
+                edgex@gmail.com
               </h5>
             </div>
           </div>
@@ -123,10 +123,10 @@ const Footer = () => {
 
         <div className="py-10 lg:flex items-center justify-between border-t border-t-bordertop">
           <h4 className="text-offwhite text-sm text-center lg:text-start font-normal">
-            @2023 Agency. All Rights Reserved by{" "}
+            @2024 Brave. All Rights Reserved by{" "}
             <Link href="https://adminmart.com/" target="_blank">
               {" "}
-              Adminmart.com
+              EdgeX
             </Link>
           </h4>
           <div className="flex gap-5 mt-5 lg:mt-0 justify-center lg:justify-start">
