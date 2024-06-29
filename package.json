@@ -12,6 +12,7 @@
     "clean" : "rm -rf .next"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^0.0.34",
     "@clerk/nextjs": "^5.1.6",
     "@google/generative-ai": "^0.14.0",
     "@headlessui/react": "^2.1.1",
@@ -32,6 +33,7 @@
     "@react-three/drei": "^9.107.3",
     "@react-three/fiber": "^8.16.8",
     "@toast-ui/react-editor": "^3.2.3",
+    "ai": "^3.2.15",
     "autoprefixer": "10.4.19",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -49,6 +51,7 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-hook-speech-to-text": "^0.8.0",
+    "react-markdown": "^9.0.1",
     "react-slick": "^0.30.2",
     "react-web-share": "^2.0.2",
     "react-webcam": "^7.2.0",
@@ -61,7 +64,8 @@
     "three-globe": "^2.31.1",
     "typescript": "5.5.2",
     "uuid": "^10.0.0",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "20.14.8",
@@ -72,4 +76,3 @@
     "drizzle-kit": "^0.22.8"
   }
 }
-
