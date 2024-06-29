@@ -4,7 +4,7 @@ import { db } from "../../../configs";
 import { JsonForms } from "../../../configs/schema";
 import { useUser } from "@clerk/nextjs";
 import { desc, eq } from "drizzle-orm";
-import { LibraryBig, LineChart, MessageSquare, Shield } from "lucide-react";
+import { LibraryBig, MessageSquare, Shield } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -22,12 +22,6 @@ function SideNav() {
       name: "Responses",
       icon: MessageSquare,
       path: "/dashboard/responses",
-    },
-    {
-      id: 1,
-      name: "Analytics",
-      icon: LineChart,
-      path: "/dashboard/analytics",
     },
     {
       id: 1,
@@ -77,7 +71,7 @@ function SideNav() {
           </Link>
         ))}
       </div>
-      <div className="fixed bottom-7 p-6 w-64 ">
+      <div className="fixed bottom-0 p-6 w-64 border">
         <Button className="w-full">+ Create Form</Button>
         <div className="my-7">
           <Progress value={PercFileCreated} />

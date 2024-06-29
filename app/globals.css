@@ -1,10 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
+::selection {
+  background-color: #e5e5e5;
+  color: #0d60d3;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #0d60d3;
+  border-radius: 10px;
+}
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scrollbar-color: #0d60d3 #e5e5e5;
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -26,7 +43,7 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
-    --radius: 0.3rem;
+    --radius: 0.4rem;
   }
 
   .dark {
@@ -62,7 +79,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 html {

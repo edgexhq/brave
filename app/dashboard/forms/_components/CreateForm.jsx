@@ -66,7 +66,7 @@ function CreateForm() {
 
       console.log("New Form ID", resp[0].id);
       if (resp[0].id) {
-        route.push("/edit-form/" + resp[0].id);
+        route.push("/dashboard/form/edit-form/" + resp[0].id);
       }
       setLoading(false);
     }
