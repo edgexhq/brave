@@ -27,7 +27,6 @@ import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
-import { TableCellsIcon } from "@heroicons/react/20/solid";
 import { usePathname } from "next/navigation";
 
 const inter = Space_Grotesk({ subsets: ["latin"] });
