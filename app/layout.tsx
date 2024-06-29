@@ -19,7 +19,7 @@ export default function RootLayout({
           <main className="flex min-h-screen flex-col items-center justify-between overflow-x-hidden bg-white">
             {children}
           </main>
-          <Toaster />
+          <Toaster richColors />
         </body>
       </html>
     </ClerkProvider>
