@@ -1,14 +1,16 @@
 "use client";
+
+import FormList from "@/components/forms/FormList";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SignedIn } from "@clerk/clerk-react";
 import React, { Suspense } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Responses from "./responses/page";
-import FormList from "./_components/FormList";
+import CreateForm from "@/components/forms/CreateForm";
 
 function DashboardLayout() {
   return (
     <SignedIn>
-      <div className="w-full">
+      <div className="w-full flex justify-between">
         <Tabs defaultValue="Forms" className="w-full">
           <TabsList>
             <TabsTrigger value="Forms">Forms</TabsTrigger>
@@ -25,6 +27,7 @@ function DashboardLayout() {
             </Suspense>
           </TabsContent>
         </Tabs>
+        <CreateForm />
       </div>
     </SignedIn>
   );

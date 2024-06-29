@@ -1,5 +1,5 @@
 "use client";
-import PricingPlan from "../../../_data/PricingPlan";
+import PricingPlan from "../../../../_data/PricingPlan";
 import { useUser } from "@clerk/nextjs";
 import React from "react";
 

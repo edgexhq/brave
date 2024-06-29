@@ -1,10 +1,11 @@
 "use client";
-import { db } from "../../../configs";
-import { JsonForms } from "../../../configs/schema";
+
+import { FormListItemResp } from "@/components/forms/response/FormListItemResp";
+import { db } from "@/lib/utils/db";
+import { JsonForms } from "@/lib/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import { eq } from "drizzle-orm";
-import React, { useEffect, useState } from "react";
-import { FormListItemResp } from "./_components/FormListItemResp";
+import { useEffect, useState } from "react";
 
 function Responses() {
   const { user } = useUser();

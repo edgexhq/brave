@@ -1,4 +1,4 @@
-import { Input } from "@/app/components/ui/input";
+import { Input } from "@/components/ui/input";
 import React, { useRef, useState } from "react";
 import {
   Select,
@@ -8,13 +8,12 @@ import {
   SelectValue,
 } from "@/app/components/ui/select";
 import { Checkbox } from "@/app/components/ui/checkbox";
-
 import { Label } from "@/app/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/app/components/ui/radio-group";
 import { Button } from "@/app/components/ui/button";
 import FieldEdit from "./FieldEdit";
-import { db } from "@/app/configs";
-import { userResponses } from "@/app/configs/schema";
+import { db } from "@/lib/utils/db";
+import { userResponses } from "@/lib/utils/schema";
 import moment from "moment";
 import { toast } from "sonner";
 import { SignInButton, useUser } from "@clerk/nextjs";
