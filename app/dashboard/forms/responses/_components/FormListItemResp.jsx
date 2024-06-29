@@ -29,9 +29,6 @@ export function FormListItemResp({ jsonForm, formRecord }) {
     exportToExcel(jsonData);
   };
 
-  /**
-   * Convert Json to Excel and then Donwload it
-   */
   const exportToExcel = (jsonData) => {
     const worksheet = XLSX.utils.json_to_sheet(jsonData);
     const workbook = XLSX.utils.book_new();
@@ -41,7 +38,7 @@ export function FormListItemResp({ jsonForm, formRecord }) {
   };
 
   return (
-    <div className="border shadow-sm rounded-lg p-4 my-5 hover:scale-105 transition-all duration-500">
+    <div className="border min-w-60 shadow-sm rounded-lg p-4 my-5 hover:scale-105 transition-all duration-500">
       <h2 className="text-lg text-black font-semibold">
         {jsonForm?.formTitle}
       </h2>

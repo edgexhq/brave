@@ -21,7 +21,6 @@ function Controller({
   const [showMore, setShowMore] = useState(6);
   return (
     <div>
-      {/* Theme selection Controller  */}
       <h2 className="my-1">Themes</h2>
       <Select onValueChange={(value) => selectedTheme(value)}>
         <SelectTrigger className="w-full">
@@ -55,9 +54,8 @@ function Controller({
           ))}
         </SelectContent>
       </Select>
-
-      {/* Background Selection Controller  */}
-      <h2 className="mt-8 my-1"> Background </h2>
+      <hr className="my-4" />
+      <h2> Background </h2>
       <div className="grid grid-cols-3 gap-5">
         {GradientBg.map(
           (bg, index) =>
@@ -66,8 +64,7 @@ function Controller({
                 key={index}
                 onClick={() => selectedBackground(bg.gradient)}
                 className=" w-full h-[70px] rounded-lg cursor-pointer
-                hover:border-black hover:border-2 flex items-center justify-center
-                "
+                hover:border-black hover:border-2 flex items-center justify-center"
                 style={{ background: bg.gradient }}
               >
                 {index == 0 && "None"}
@@ -76,20 +73,20 @@ function Controller({
         )}
       </div>
       <Button
-        variant="ghost"
+        variant="outline"
         size="sm"
         className="w-full my-1 "
         onClick={() => setShowMore(showMore > 6 ? 6 : 20)}
       >
         {showMore > 6 ? "Show Less" : "Show More"}
       </Button>
-
+      <hr className="my-5" />
       {/* Style Selection Controller  */}
       <div>
         <label>Style</label>
         <div className="grid grid-cols-3  gap-3">
           {Style.map((item, index) => (
-            <div>
+            <div key={index}>
               <div
                 className="cursor-pointer hover:border-2 rounded-lg"
                 onClick={() => selectedStyle(item)}
@@ -107,7 +104,7 @@ function Controller({
         </div>
       </div>
 
-      <div className="flex gap-2 my-4 items-center mt-10">
+      <div className="flex gap-2 my-4 items-center text-sm mt-10">
         <Checkbox onCheckedChange={(e) => setSignInEnable(e)} />{" "}
         <h2>Enable Social Authentication before submit the form</h2>
       </div>

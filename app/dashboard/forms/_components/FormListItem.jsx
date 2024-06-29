@@ -38,16 +38,13 @@ function FormListItem({ formRecord, jsonForm, refreshData }) {
     }
   };
   return (
-    <div className="border hover:scale-105 transition-all duration-500 hover:shadow-md shadow-sm rounded-lg p-4">
+    <div className="border hover:scale-105 transition-all min-w-60 duration-500 hover:shadow-md shadow-sm rounded-lg p-4">
       <div className="flex justify-between">
         <h2></h2>
 
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Trash
-              className="h-5 w-5 text-red-600 
-                    cursor-pointer hover:scale-105 transition-all"
-            />
+            <Trash className="h-5 w-5 text-red-600 cursor-pointer hover:text-red-400 transition-all" />
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
@@ -66,8 +63,10 @@ function FormListItem({ formRecord, jsonForm, refreshData }) {
           </AlertDialogContent>
         </AlertDialog>
       </div>
-      <h2 className="text-lg text-black line-clamp-1">{jsonForm?.formTitle}</h2>
-      <h2 className="text-sm text-gray-500 line-clamp-1">
+      <h2 className="text-lg text-black font-semibold line-clamp-1">
+        {jsonForm?.formTitle}
+      </h2>
+      <h2 className="text-sm text-gray-500 line-clamp-1 pb-4">
         {jsonForm?.formHeading}
       </h2>
       <hr className="my-4"></hr>
@@ -83,13 +82,12 @@ function FormListItem({ formRecord, jsonForm, refreshData }) {
           onClick={() => console.log("shared successfully!")}
         >
           <Button variant="outline" size="sm" className="flex gap-2">
-            {" "}
-            <Share className="h-5 w-5" /> Share
+            <Share size={17} /> Share
           </Button>
         </RWebShare>
-        <Link href={"/edit-form/" + formRecord?.id}>
+        <Link href={"/dashboard/edit-form/" + formRecord?.id}>
           <Button className="flex gap-2" size="sm">
-            <Edit className="h-5 w-5" /> Edit
+            <Edit size={17} /> Edit
           </Button>
         </Link>
       </div>
