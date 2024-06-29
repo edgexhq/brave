@@ -83,7 +83,7 @@ export default class MultipleItems extends Component {
       <div className="text-center">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="py-14">
-            {/* @ts-expect-error */}
+            {/* @ts-ignore */}
             <Slider {...settings}>
               {data.map((item, i) => (
                 <div key={i}>
