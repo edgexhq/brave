@@ -2,11 +2,11 @@
 
 import FormSection from "../content/_components/FormSection";
 import { useState } from 'react'
-import { TEMPLATE } from '../_components/TemplateListSection'
+import { TEMPLATE } from '@/components/content/TemplateListSection'
 import Templates from '@/app/(data)/Templates'
-import { chatSession } from '@/utils/AiModal'
-import { db } from '@/utils/db'
-import { AIOutput } from '@/utils/schema'
+import { chatSession } from "@/lib/utils/gemini-model";
+import { db } from "@/lib/utils/db";
+import { AIOutput } from "@/lib/utils/schema";
 import OutputSection from "../content/_components/OutputSection";
 import moment from 'moment'
 import { useUser } from '@clerk/nextjs'
