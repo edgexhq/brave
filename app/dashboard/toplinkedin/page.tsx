@@ -18,7 +18,7 @@ interface JobProps {
     company_url: string
 }
 
-export default function Component() {
+export default function TopLinkedIn() {
 
     const [jobs, setJobs] = useState<[]>([]); // Corrected line
     const [jobPosition, setJobPosition] = useState('')
