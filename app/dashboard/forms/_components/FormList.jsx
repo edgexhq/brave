@@ -24,16 +24,19 @@ function FormList() {
   };
 
   return (
-    <div className="mt-5 grid grid-cols-2 md:grid-cols-3 gap-5">
-      {formList.map((form, index) => (
-        <div>
-          <FormListItem
-            jsonForm={JSON.parse(form.jsonform)}
-            formRecord={form}
-            refreshData={GetFormList}
-          />
-        </div>
-      ))}
+    <div className="py-10 px-4">
+      <h2 className="font-bold text-3xl">Your Forms</h2>
+      <div className="mt-5 grid grid-cols-2 md:grid-cols-3 gap-5">
+        {formList.map((form, index) => (
+          <div key={index}>
+            <FormListItem
+              jsonForm={JSON.parse(form.jsonform)}
+              formRecord={form}
+              refreshData={GetFormList}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

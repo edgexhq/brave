@@ -46,7 +46,7 @@ function CreateForm() {
   };
   const onCreateForm = async () => {
     if (formList?.length == 3) {
-      toast("Upgrade to create unlimted form");
+      toast.warning("Upgrade to create unlimted form");
       return;
     }
     setLoading(true);

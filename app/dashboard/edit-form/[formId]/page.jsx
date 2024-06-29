@@ -74,7 +74,7 @@ function EditForm({ params }) {
       )
       .returning({ id: JsonForms.id });
 
-    toast("Updated!!!");
+    toast.success("Updated!!!");
     console.log(result);
   };
 
@@ -102,19 +102,18 @@ function EditForm({ params }) {
       )
       .returning({ id: JsonForms.id });
 
-    toast("Updated!!!");
+    toast.success("Updated!!!");
   };
 
   return (
-    <div className="p-10">
+    <div className="px-6 py-1 space-y-4">
       <div className="flex justify-between items-center">
-        <h2
-          className="flex gap-2 items-center my-5 cursor-pointer
-        hover:font-bold "
-          onClick={() => router.back()}
+        <Button
+          variant="secondary"
+          onClick={() => router.push("/dashboard/forms")}
         >
-          <ArrowLeft /> Back
-        </h2>
+          <ArrowLeft size={18} className="mr-2" /> Back
+        </Button>
         <div className="flex gap-2">
           <Link href={"/aiform/" + record?.id} target="_blank">
             <Button className="flex gap-2">
@@ -133,7 +132,6 @@ function EditForm({ params }) {
             onClick={() => console.log("shared successfully!")}
           >
             <Button className="flex gap-2 bg-green-600 hover:bg-green-700">
-              {" "}
               <Share2 /> Share
             </Button>
           </RWebShare>

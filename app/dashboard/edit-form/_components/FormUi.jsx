@@ -59,9 +59,9 @@ function FormUi({
 
     if (result) {
       formRef.reset();
-      toast("Response Submitted Successfully !");
+      toast.success("Response Submitted Successfully !");
     } else {
-      toast("Error while saving your form !");
+      toast.error("Error while saving your form !");
     }
   };
 
@@ -97,8 +97,10 @@ function FormUi({
         border: selectedStyle?.key == "border" && selectedStyle.value,
       }}
     >
-      <h2 className="font-bold text-center text-2xl">{jsonForm?.formTitle}</h2>
-      <h2 className="text-sm text-gray-400 text-center">
+      <h2 className="font-bold text-center pb-2 text-pretty break-words text-2xl md:text-3xl">
+        {jsonForm?.formTitle}
+      </h2>
+      <h2 className="text-sm md:text-base text-gray-400 text-center">
         {jsonForm?.formHeading}
       </h2>
 

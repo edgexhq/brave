@@ -24,15 +24,14 @@ function Responses() {
   };
   return (
     formList && (
-      <div className="p-10">
-        <h2 className="font-bold text-3xl flex items-center justify-between">
-          Responses
-        </h2>
+      <div className="py-10 px-4">
+        <h2 className="font-bold text-3xl">Responses</h2>
 
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
           {formList &&
             formList?.map((form, index) => (
               <FormListItemResp
+                key={index}
                 formRecord={form}
                 jsonForm={JSON.parse(form.jsonform)}
               />

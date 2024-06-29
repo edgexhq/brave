@@ -8,6 +8,7 @@ import { LibraryBig, MessageSquare, Shield } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 function SideNav() {
   const menuList = [
@@ -71,7 +72,18 @@ function SideNav() {
           </Link>
         ))}
       </div>
-      <div className="fixed bottom-0 p-6 w-64 border">
+      <Tabs defaultValue="account" className="w-[400px]">
+        <TabsList>
+          <TabsTrigger value="account">Account</TabsTrigger>
+          <TabsTrigger value="password">Password</TabsTrigger>
+        </TabsList>
+        <TabsContent value="account">
+          Make changes to your account here.
+        </TabsContent>
+        <TabsContent value="password">Change your password here.</TabsContent>
+      </Tabs>
+
+      {/* <div className="fixed bottom-0 p-6 w-64 border">
         <Button className="w-full">+ Create Form</Button>
         <div className="my-7">
           <Progress value={PercFileCreated} />
@@ -83,7 +95,7 @@ function SideNav() {
             Upgrade your plan for unlimted AI form build
           </h2>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
