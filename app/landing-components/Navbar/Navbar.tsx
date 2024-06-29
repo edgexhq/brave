@@ -18,12 +18,20 @@ const Navbar = () => {
       path: "/",
     },
     {
-      title: "About",
-      path: "/aboutus",
+      title: "Services",
+      path: "#services",
     },
     {
-      title: "Review Us",
-      path: "/review",
+      title: "About",
+      path: "#about",
+    },
+    {
+      title: "Reviews",
+      path: "#reviews",
+    },
+    {
+      title: "Contact",
+      path: "#contact",
     },
   ];
   return (
@@ -46,7 +54,7 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <div className="hidden md:block sm:pl-40">
+            <div className="hidden md:block sm:pl-28">
               <nav aria-label="Global">
                 <ul className="flex items-center gap-6 text-sm">
                   <li className=" space-x-6">

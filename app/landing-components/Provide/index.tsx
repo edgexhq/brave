@@ -38,13 +38,13 @@ const Provide = () => {
   const isInView = useInView(ref, { once: true });
   return (
     <div
+      id="services"
       ref={ref}
       style={{
         transform: isInView ? "none" : "translateX(-200px)",
         opacity: isInView ? 1 : 0,
         transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
       }}
-      id="services"
       className="mx-auto max-w-7xl py-16 px-6"
     >
       <div className="mx-auto max-w-7xl px-4 my-10 sm:py-20 lg:px-8">
