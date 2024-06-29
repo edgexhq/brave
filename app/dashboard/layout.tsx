@@ -53,7 +53,7 @@ export default function DashLayout({
       link: "/dashboard/interview",
     },
     {
-      name: "ai forms",
+      name: "forms",
       icon: <TableProperties size={16} />,
       link: "/dashboard/forms",
     },
@@ -98,7 +98,7 @@ export default function DashLayout({
                 height={32}
                 alt="Brave Inc"
               />
-              <span className="">Brave Inc</span>
+              <span className="">Brave</span>
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
               <Bell color="#e5d70d" fill="#e5d70d" size={16} />
@@ -117,7 +117,7 @@ export default function DashLayout({
                   href={path.link}
                   className={
                     "flex items-center gap-2 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground " +
-                    (path.name === activePath.name
+                    (path.name === activePath?.name
                       ? "bg-secondary text-primary border"
                       : "")
                   }
