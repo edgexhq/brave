@@ -9,10 +9,11 @@
     "lint": "next lint",
     "db:push": "bunx drizzle-kit push",
     "db:studio": "bunx drizzle-kit studio",
-    "clean" : "rm -rf .next"
+    "clean": "rm -rf .next"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.34",
+    "@ai-sdk/react": "^0.0.15",
     "@clerk/nextjs": "^5.1.6",
     "@google/generative-ai": "^0.14.0",
     "@headlessui/react": "^2.1.1",

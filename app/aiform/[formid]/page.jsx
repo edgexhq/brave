@@ -28,7 +28,7 @@ function LiveAiForm({ params }) {
   };
   return (
     <div
-      className="p-10 flex h-screen w-full justify-center items-center"
+      className="p-10 flex h-full w-full justify-center items-center"
       style={{
         backgroundImage: record?.background,
       }}
