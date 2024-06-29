@@ -1,17 +1,6 @@
-import {
-  Bell,
-  Home,
-  LineChart,
-  Menu,
-  Package,
-  Package2,
-  Search,
-  ShoppingCart,
-  Users,
-} from "lucide-react";
+import { Bell, Home, Menu, Package, Package2, Search } from "lucide-react";
 import Link from "next/link";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -129,7 +118,7 @@ export default function DashLayout({
                   <Home className="h-5 w-5" />
                   Dashboard
                 </Link>
-                
+
                 <Link
                   href="/dashboard/interview"
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
