@@ -32,14 +32,17 @@ const Navbar = () => {
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
-              <Link className="block text-primary" href="/">
-                <span className="sr-only">Home</span>
+              <Link
+                className="flex items-center justify-center gap-2 font-semibold text-primary"
+                href="/"
+              >
                 <Image
-                  src="/next.svg"
+                  src="/logo-base-256x256.png"
                   alt="Logo"
-                  width={70}
+                  width={40}
                   height={50}
                 />
+                <span className="text-xl">Brave</span>
               </Link>
             </div>
 
@@ -74,12 +77,14 @@ const Navbar = () => {
               </div>
 
               <div className="block md:hidden">
-                <button
+                <Button
+                  variant={"ghost"}
+                  title="menu"
                   onClick={handleMenuOpen}
                   className="p-2 bg-secondary text-secondary-foreground hover:bg-secondary/80"
                 >
                   <MenuIcon size={24} />
-                </button>
+                </Button>
               </div>
             </div>
           </div>
