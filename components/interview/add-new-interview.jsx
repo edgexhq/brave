@@ -42,9 +42,9 @@ function AddNewInterview() {
       jobDesc +
       ", Years of Experience : " +
       jobExperience +
-      " , Depends on Job Position, Job Description & Years of Experience give us " +
+      " , Depending on Job Position, Job Description & Years of Experience give us " +
       process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT +
-      " Interview question along with Answer in JSON format, Give us question and answer field on JSON";
+      " Interview question along with answer in JSON format [{ question: '',answer:''}]. Give the answer in JSON format.";
 
     const result = await chatSession.sendMessage(InputPrompt);
     const MockJsonResp = result.response
