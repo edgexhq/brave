@@ -24,7 +24,7 @@ export default function InterviewItemCard({ interview }) // }: {
   };
 
   return (
-    <div className="border shadow-sm rounded-lg p-3">
+    <div className="border-2 shadow-sm rounded-lg p-3 hover:border-blue-600 ease-in-out duration-300 transition-all hover:scale-105">
       <h2 className="font-bold text-primary">{interview?.jobPosition}</h2>
       <h2 className="text-sm text-gray-600">
         {interview?.jobExperience} Years of Experience

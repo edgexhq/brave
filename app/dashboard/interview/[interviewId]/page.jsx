@@ -46,14 +46,14 @@ function Interview({ params }) {
               {interviewData?.jobExperience}{" "}
             </h2>
           </div>
-          <div className="p-5 border rounded-lg border-yellow-300 bg-yellow-100">
+          <div className="p-5 border rounded-lg border-yellow-300 bg-yellow-50">
             <h2 className="flex gap-2 items-center text-yellow-500">
               {" "}
               <Lightbulb />
               <strong>Information</strong>
             </h2>
-            <h2 className="mt-3 text-yellow-500">
-              {process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT}
+            <h2 className="mt-3 text-yellow-600 text-xs">
+              {process.env.NEXT_PUBLIC_INFORMATION_MESSAGE}
             </h2>
           </div>
         </div>
