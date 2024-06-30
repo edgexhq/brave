@@ -17,7 +17,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-          <main className="flex min-h-screen flex-col items-center justify-between overflow-x-hidden bg-white">
+          <main className="flex min-h-screen flex-col items-center justify-between overflow-x-hidden">
             {children}
           </main>
           <Toaster richColors />
