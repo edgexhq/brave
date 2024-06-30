@@ -85,12 +85,12 @@ function AddNewInterview() {
   return (
     <div>
       <div
-        className="p-10 border rounded-lg bg-secondary
+        className="p-2 border rounded-lg bg-white
         hover:scale-105 hover:shadow-md cursor-pointer
          transition-all border-dashed"
         onClick={() => setOpenDailog(true)}
       >
-        <h2 className="text-lg text-center font-semibold">+ start new.</h2>
+        <h2 className="text-lg text-black text-center font-semibold">+ start new.</h2>
       </div>
       <Dialog open={openDailog}>
         <DialogContent className="max-w-2xl">
