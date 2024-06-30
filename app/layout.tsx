@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 export const metadata = {
   title: "Brave",
   description: "Your Next gen AI interview prep and taking platform",
+  metabaseURL: new URL("https://braveai.vercel.app"),
 };
 
 export default function RootLayout({
