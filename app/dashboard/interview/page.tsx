@@ -5,7 +5,7 @@ import InterviewList from "@/components/interview/interview-list";
 
 export default function InterviewDashboard() {
   return (
-    <div className="p-10">
+    <div className="p-5">
       <h2 className="font-bold text-3xl text-black mb-2">mock interview.</h2>
       <h2 className="text-gray-500">
         Create and Start your AI Mock Interview
