@@ -109,7 +109,7 @@ export default function DashLayout({
             <nav
               className={
                 inter.className +
-                " grid items-start px-2 text-sm font-medium lg:px-4"
+                " grid items-start px-2 text-base font-medium lg:px-4"
               }
             >
               {pathArray.map((path) => (
