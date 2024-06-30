@@ -14,8 +14,8 @@ import InputBar from "@/components/ui/InputBar";
 import { Button } from "@/components/ui/button";
 import { CirclePlus } from "lucide-react";
 import dynamic from "next/dynamic";
-import { ConfirmModal } from '@/components/emailer/ConfirmModal';
-const OutputSection = dynamic(() => import('../content/_components/OutputSection'), { ssr: false });
+
+const OutputSection2 = dynamic(() => import('@/components/emailer/OutputSection2'), { ssr: false });
 
 const page = () => {
 
@@ -78,13 +78,6 @@ const page = () => {
                             <Button type="button" className="ml-2 w-10 h-10 rounded-full p-0" variant={"secondary"} onClick={handleAddEmail}><CirclePlus className="text-blue-500" size={18} /></Button>
                         </div>
                     </div>
-
-                    <div className='my-2 flex flex-1 flex-col w-full gap-2 mb-7'>
-                        {/*Date Time Picker */}
-                        <label className='font-bold'>Date Time</label>
-                        <Input type='datetime-local' name='datetime' required={true} />
-                    </div>
-                    <ConfirmModal />
                 </form>
             </div>
             <div className="pb-10 pt-2">
@@ -102,7 +95,7 @@ const page = () => {
                     loading={loading} />
                 {/* OutputSection  */}
                 <div className='col-span-2'>
-                    <OutputSection aiOutput={aiOutput} />
+                    <OutputSection2 aiOutput={aiOutput} emails={emails} />
                 </div>
             </div>
         </div>

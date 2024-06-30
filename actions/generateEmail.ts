@@ -4,13 +4,7 @@ import nodemailer from "nodemailer";
 
 export async function generateEmailBody(content: string, subject1: string) {
   const subject = subject1;
-  const body = `
-    <div style="font-family:sans;">
-    <div style="border: 1px solid #ff4968; padding: 10px; background-color:rgb(56, 23, 29,0.7);border-radius:15px;color:white;">
-      ${content}
-    </div>
-  </div>
-      `;
+  const body = content;
 
   return { subject, body };
 }
