@@ -14,6 +14,7 @@ import InputBar from "@/components/ui/InputBar";
 import { Button } from "@/components/ui/button";
 import { CirclePlus } from "lucide-react";
 import dynamic from "next/dynamic";
+import { ConfirmModal } from '@/components/emailer/ConfirmModal';
 const OutputSection = dynamic(() => import('../content/_components/OutputSection'), { ssr: false });
 
 const page = () => {
@@ -83,8 +84,7 @@ const page = () => {
                         <label className='font-bold'>Date Time</label>
                         <Input type='datetime-local' name='datetime' required={true} />
                     </div>
-
-                    <Button type="submit" className='bg-primary text-white mt-4'>Schedule Email Sending</Button>
+                    <ConfirmModal />
                 </form>
             </div>
             <div className="pb-10 pt-2">

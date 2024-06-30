@@ -1,23 +1,43 @@
 export default [
     {
-        name: 'Blog Title',
-        desc: 'An AI tool that generate blog title depends on yout blog information',
-        category: 'Blog',
-        icon: 'https://cdn-icons-png.flaticon.com/128/4186/4186534.png',
-        aiPrompt: 'Give me 5 blog topic idea in bullet wise only based on give niche & outline and give me result in Rich text editor format',
-        slug: 'generate-blog-title',
+        name: 'LinkedIn Post',
+        desc: 'An AI tool that serves as your LinkedIn post writer, generating catchy and professional posts in your chosen language.',
+        category: 'post',
+        icon: 'https://cdn-icons-png.flaticon.com/128/4905/4905454.png',
+        slug: 'linkedin-post-generation',
+        aiPrompt: 'Generate LinkedIn Post with emojis based on topic and outline in rich text editor format',
         form: [
             {
-                label: 'Enter your blog niche',
+                label: 'Enter your LinkedIn topic',
                 field: 'input',
-                name: 'niche',
+                name: 'topic',
                 required: true
             },
             {
-                label: 'Enter blog outline',
+                label: 'Enter a description here',
                 field: 'textarea',
-                name: 'outline',
-
+                name: 'outline'
+            }
+        ]
+    },
+    {
+        name: 'Twitter Post',
+        desc: 'An AI tool that serves as your Twitter post writer, generating short and professional posts in your chosen language.',
+        category: 'post',
+        icon: 'https://cdn-icons-png.flaticon.com/128/4905/4905454.png',
+        slug: 'twitter-post-generation',
+        aiPrompt: 'Generate Twitter Post with emojis based on topic and outline in rich text editor format',
+        form: [
+            {
+                label: 'Enter your Twitter topic',
+                field: 'input',
+                name: 'topic',
+                required: true
+            },
+            {
+                label: 'Enter a brief description here',
+                field: 'textarea',
+                name: 'outline'
             }
         ]
     },
@@ -43,22 +63,6 @@ export default [
         ]
     },
     {
-        name: 'Blog Topic Ideas',
-        desc: 'An AI tool that serves as your personal blog post title writer, generating catchy and viral-worthy titles in your chosen language.',
-        category: 'Blog',
-        icon: 'https://cdn-icons-png.flaticon.com/128/11497/11497847.png',
-        slug: 'blog-topic-idea',
-        aiPrompt: 'Generate top 5 Blog Topic Ideas in bullet point only, (no Description) based on niche in rich text editor format',
-        form: [
-            {
-                label: 'Enter your Niche',
-                field: 'input',
-                name: 'niche',
-                required: true
-            },
-        ]
-    },
-    {
         name: 'Email Writeup',
         //Email writer AI for interviewers and job seekers. Generate professional email templates for various scenarios, such as job applications, follow-ups, and networking.
         desc: 'An AI tool that serves as your professional email writer, generating catchy and viral-worthy titles in your chosen language.',
@@ -78,6 +82,44 @@ export default [
                 field: 'textarea',
                 name: 'outline'
             }
+        ]
+    },
+    {
+        name: 'Blog Title',
+        desc: 'An AI tool that generate blog title depends on yout blog information',
+        category: 'Blog',
+        icon: 'https://cdn-icons-png.flaticon.com/128/4186/4186534.png',
+        aiPrompt: 'Give me 5 blog topic idea in bullet wise only based on give niche & outline and give me result in Rich text editor format',
+        slug: 'generate-blog-title',
+        form: [
+            {
+                label: 'Enter your blog niche',
+                field: 'input',
+                name: 'niche',
+                required: true
+            },
+            {
+                label: 'Enter blog outline',
+                field: 'textarea',
+                name: 'outline',
+
+            }
+        ]
+    },
+    {
+        name: 'Blog Topic Ideas',
+        desc: 'An AI tool that serves as your personal blog post title writer, generating catchy and viral-worthy titles in your chosen language.',
+        category: 'Blog',
+        icon: 'https://cdn-icons-png.flaticon.com/128/11497/11497847.png',
+        slug: 'blog-topic-idea',
+        aiPrompt: 'Generate top 5 Blog Topic Ideas in bullet point only, (no Description) based on niche in rich text editor format',
+        form: [
+            {
+                label: 'Enter your Niche',
+                field: 'input',
+                name: 'niche',
+                required: true
+            },
         ]
     },
     {

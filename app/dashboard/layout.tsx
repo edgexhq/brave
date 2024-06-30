@@ -11,11 +11,11 @@ import {
   Search,
   Speech,
   TableProperties,
+  Timer
 } from "lucide-react";
 
 import { Space_Grotesk } from "next/font/google";
 import Link from "next/link";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -82,6 +82,11 @@ export default function DashLayout({
       icon: <Bot size={16} />,
       link: "/dashboard/chatbot",
     },
+    {
+      name: 'history',
+      icon: <Timer size={16} />,
+      link: '/dashboard/history'
+    }
   ];
 
   const activePath = pathArray.filter((path) => path.name === paths[0])[0];
