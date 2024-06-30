@@ -1,15 +1,12 @@
 "use client";
-import { useChat } from "ai/react";
+
+import { useChat } from "@ai-sdk/react";
 import Image from "next/image";
-// import sparkles from "@/assets/Sparkle.svg";
-// import send from "@/assets/send.svg";
-// import robo from "@/assets/Robo.svg";
-// import copy from "@/assets/copy.svg";
-// import userPic from "@/assets/userPic.jpg";
 import Markdown from "react-markdown";
 import { useEffect, useRef } from "react";
 import { useUser } from "@clerk/nextjs";
-import { Loader2 } from "lucide-react";
+import { Copy, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 const Chatbox = () => {
   const { user } = useUser();
   const { messages, input, handleInputChange, handleSubmit, isLoading } =
@@ -23,16 +20,9 @@ const Chatbox = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
-  const handleSuggestionClick = (suggestion: string) => {
-    const event = {
-      target: {
-        value: suggestion,
-      },
-    } as React.ChangeEvent<HTMLTextAreaElement>;
-    handleInputChange(event);
-  };
+
   return (
-    <div className="flex pb-0.5 h-svh w-full flex-col max-w-5xl mx-auto">
+    <div className="flex pb-0.5 w-full flex-col max-w-5xl mx-auto h-[85vh]">
       <div className="flex-1 overflow-y-auto rounded-xl bg-neutral-200 p-4 text-sm leading-6 text-neutral-900 dark:bg-neutral-800/60 dark:text-neutral-300 sm:text-base sm:leading-7 border border-blue-600/20 h-full">
         {messages.length > 0 ? (
           messages.map((m) => (
@@ -67,13 +57,14 @@ const Chatbox = () => {
                   <button
                     type="button"
                     title="copy"
-                    className="absolute top-2 right-2 p-1 rounded-full bg-blue-500 dark:bg-neutral-800 transition-all active:scale-95 opacity-50 hover:opacity-75"
+                    className="absolute top-2 right-2 p-2 rounded-full bg-blue-500 dark:bg-neutral-800 transition-all active:scale-95 opacity-50 hover:opacity-75"
                     onClick={() => {
                       navigator.clipboard.writeText(m.content);
-                      alert("Copied to clipboard");
+                      toast.success("Copied to clipboard");
                     }}
                   >
                     {/* <Image src={copy} alt="copy" width={19} className="" /> */}
+                    <Copy size={16} />
                   </button>
                 </div>
               )}
@@ -81,19 +72,20 @@ const Chatbox = () => {
           ))
         ) : (
           <div className="flex flex-col items-center">
-            <p className="text-xl md:text-2xl py-20 px-2 font-semibold text-center m-auto text-stone-500 dark:text-stone-400 tracking-wide">
+            <p className="text-xl md:text-2xl py-10 px-2 font-semibold text-center m-auto text-stone-500 dark:text-stone-400 tracking-wide">
               Start Chatting with
               <br />
               <span className="text-blue-500 text-2xl md:text-4xl">Brave</span>
               .AI Now!
             </p>
-            {/* <Image
-              src={robo}
+             <Image
+              src='/Job hunt-rafiki.svg'
               id="pic"
               alt="ROBO"
               width={300}
+              height={300}
               className="hover:scale-110 transition-all duration-500 active:scale-95"
-            /> */}
+            />
           </div>
         )}
         {isLoading && (
@@ -108,51 +100,6 @@ const Chatbox = () => {
           </div>
         )}
         <div ref={messagesEndRef} />
-      </div>
-      {/* Prompt suggestions */}
-      <div className="mt-2 flex w-full gap-x-2 overflow-x-auto whitespace-nowrap text-xs text-neutral-600 dark:text-neutral-300 sm:text-sm scrollbar-hide">
-        <button
-          title="btn"
-          onClick={() => handleSuggestionClick("Make it Shorter and simpler.")}
-          className="rounded-lg bg-neutral-200 p-2 hover:bg-blue-600 hover:text-neutral-200 dark:bg-neutral-800 dark:hover:bg-blue-600 dark:hover:text-neutral-50 transition-all active:scale-105"
-        >
-          Make Shorter
-        </button>
-
-        <button
-          title="btn"
-          onClick={() =>
-            handleSuggestionClick("Make it longer. explain it nicely")
-          }
-          className="rounded-lg bg-neutral-200 p-2 hover:bg-blue-600 hover:text-neutral-200 dark:bg-neutral-800 dark:hover:bg-blue-600 dark:hover:text-neutral-50 transition-all active:scale-105"
-        >
-          Make longer
-        </button>
-        <button
-          title="btn"
-          onClick={() =>
-            handleSuggestionClick("Write it in a more professional tone.")
-          }
-          className="rounded-lg bg-neutral-200 p-2 hover:bg-blue-600 hover:text-neutral-200 dark:bg-neutral-800 dark:hover:bg-blue-600 dark:hover:text-neutral-50 transition-all active:scale-105"
-        >
-          More professional
-        </button>
-        <button
-          title="btn"
-          onClick={() =>
-            handleSuggestionClick("Write it in a more casual and light tone.")
-          }
-          className="rounded-lg bg-neutral-200 p-2 hover:bg-blue-600 hover:text-neutral-200 dark:bg-neutral-800 dark:hover:bg-blue-600 dark:hover:text-neutral-50 transition-all active:scale-105"
-        >
-          More casual
-        </button>
-        <button
-          title="btn"
-          onClick={() => handleSuggestionClick("Paraphrase it")}
-          className="rounded-lg bg-neutral-200 p-2 hover:bg-blue-600 hover:text-neutral-200 dark:bg-neutral-800 dark:hover:bg-blue-600 dark:hover:text-neutral-50 transition-all active:scale-105"
-        >
-          Paraphrase
-        </button>
       </div>
 
       <form className="mt-2" onSubmit={handleSubmit}>
