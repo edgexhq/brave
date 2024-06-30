@@ -304,3 +304,8 @@ hr {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.bg-zz {
+  background: url("https://assets.lummi.ai/assets/QmNtE7zSUEDyVUNaG8fS4ADewRKsF1hRj6PyfhUSEK44y9?auto=format&w=1500");
+  background-position: center;
+}
