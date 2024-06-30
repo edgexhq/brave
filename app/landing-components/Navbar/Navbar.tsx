@@ -5,6 +5,7 @@ import { MenuIcon } from "lucide-react";
 import { useState } from "react";
 import NavLink from "./NavLink";
 import { Button } from "@/components/ui/button";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -73,16 +74,23 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="flex gap-4">
+              <SignedIn>
                 <Button size="lg" asChild>
-                  <Link href="/sign-in">Login</Link>
+                  <Link href="/dashboard">Dashboard</Link>
                 </Button>
-                <div className="hidden sm:flex">
-                  <Button size="lg" asChild variant="secondary">
-                    <Link href="/sign-up">Sign Up</Link>
+              </SignedIn>
+              <SignedOut>
+                <div className="flex gap-4">
+                  <Button size="lg" asChild>
+                    <Link href="/sign-in">Login</Link>
                   </Button>
+                  <div className="hidden sm:flex">
+                    <Button size="lg" asChild variant="secondary">
+                      <Link href="/sign-up">Sign Up</Link>
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              </SignedOut>
 
               <div className="block md:hidden">
                 <Button
