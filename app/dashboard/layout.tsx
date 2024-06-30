@@ -96,14 +96,19 @@ export default function DashLayout({
       <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <Link href="/" className="flex items-center gap-1 font-semibold">
+            <Link
+              href="/"
+              className="flex items-center gap-[3px] font-semibold"
+            >
               <Image
-                src={"/logo-base-256x256.png"}
+                src={"/logo-black-256x256.png"}
                 width={32}
                 height={32}
                 alt="Brave Inc"
               />
-              <span className="">Brave</span>
+              <span className="text-lg font-semibold tracking-tight ">
+                Brave
+              </span>
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
               <Bell color="#e5d70d" fill="#e5d70d" size={16} />
@@ -172,61 +177,20 @@ export default function DashLayout({
                 >
                   <span className="sr-only">Brave Inc</span>
                 </Link>
-                <Link
-                  href="/dashboard"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  Dashboard
-                </Link>
-
-                <Link
-                  href="/dashboard/interview"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  Mock Interview
-                </Link>
-
-                <Link
-                  href="/dashboard/forms"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  AI Forms
-                </Link>
-
-                <Link
-                  href="/dashboard/content"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  Content Generator
-                </Link>
-
-                <Link
-                  href="/dashboard/toplinkedin"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  Top Jobs
-                </Link>
-
-                <Link
-                  href="/dashboard/headlines"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  Headlines
-                </Link>
-
-                <Link
-                  href="/dashboard/emailer"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  Email Scheduler
-                </Link>
+                {pathArray.map((path) => (
+                  <a
+                    href={path.link}
+                    className={
+                      "flex items-center gap-2 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground " +
+                      (path.name === activePath?.name
+                        ? "bg-secondary text-primary border"
+                        : "")
+                    }
+                  >
+                    {path.icon}
+                    {path.name}.
+                  </a>
+                ))}
               </nav>
               <div className="mt-auto">
                 <Card>

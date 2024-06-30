@@ -7,22 +7,18 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import {
-  ArrowRight,
-  Speech,
-  TableProperties,
-} from "lucide-react";
+import { ArrowRight, Speech, TableProperties } from "lucide-react";
 import Welcome from "@/components/Welcome";
 import Link from "next/link";
 import TemplateCard from "@/components/content/TemplateCard";
-import Templates from '@/app/(data)/Templates'
+import Templates from "@/app/(data)/Templates";
 
 type Props = {};
 
-export default function Dashboard({ }: Props) {
+export default function Dashboard({}: Props) {
   return (
     <>
-      <div className="w-full bg-muted/40 flex flex-col gap-8 md:p-8">
+      <div className="w-full flex flex-col gap-8 md:p-5">
         <Suspense
           fallback={
             <div className="min-h-20 bg-secondary w-full p-10">Loading...</div>
@@ -73,7 +69,7 @@ export default function Dashboard({ }: Props) {
           <h2 className="text-2xl md:text-3xl font-semibold py-2 text-zinc-700">
             Trending Tools :
           </h2>
-          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-10 mb-12'>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 py-10 mb-12">
             {/* @ts-ignore */}
             {Templates.slice(0, 8).map((item: TEMPLATE) => (
               <TemplateCard {...item} />
