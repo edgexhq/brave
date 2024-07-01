@@ -46,10 +46,6 @@ export default function CreateForm() {
     setFormList(result);
   };
   const onCreateForm = async () => {
-    if (formList?.length == 3) {
-      toast.warning("Upgrade to create unlimted form");
-      return;
-    }
     setLoading(true);
     const result = await AiChatSession.sendMessage(
       "Description:" + userInput + PROMPT
