@@ -19,7 +19,6 @@ const OutputSection2 = dynamic(() => import('@/components/emailer/OutputSection2
 
 const page = () => {
 
-    // @ts-expect-error
     const selectedTemplate: TEMPLATE | undefined = Templates?.find((item) => item.slug === 'email-writeup');
 
     const [loading, setLoading] = useState(false);
