@@ -74,7 +74,19 @@ export default function TopLinkedIn() {
     }
 
     return (
-        <div className="container mx-auto px-4 py-12">
+        <div className="w-full flex flex-col gap-8 md:p-5">
+            <div className="bg-gradient-to-tl from-green-300 via-blue-500 to-purple-600 p-10 rounded-lg mb-10">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-x-10 gap-y-4">
+                    <div>
+                        <h2 className="font-bold text-3xl text-white mb-2">
+                            top jobs you need.
+                        </h2>
+                        <h2 className="text-gray-200">
+                            Search for the Top Jobs on LinkedIn and apply directly.
+                        </h2>
+                    </div>
+                </div>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="space-y-2">
                     <Label htmlFor="job-position">Job Position</Label>

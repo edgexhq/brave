@@ -55,7 +55,7 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <div className="hidden md:block sm:pl-28">
+            <div className="hidden md:block">
               <nav aria-label="Global">
                 <ul className="flex items-center gap-6 text-sm">
                   <li className=" space-x-6">

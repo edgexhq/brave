@@ -74,36 +74,31 @@ const page = () => {
 
   return (
     <div>
-      <div className="p-5 mb-4 shadow-md border rounded-lg bg-white">
-        <h2 className="font-bold text-2xl mb-2 text-primary">
+      <div className="p-5 mb-4 shadow-md border rounded-lg bg-gradient-to-tl from-green-300 via-blue-500 to-purple-600">
+        <h2 className="font-bold text-2xl mb-2 text-white">
           Scheduler Your Emails
         </h2>
-        <p className="text-gray-500 text-sm">
+        <p className="text-gray-200 text-sm">
           Schedule your emails from here. You can also ask our AI to generate a
           template for you
         </p>
-        <form
-          className="mt-6 flex flex-col sm:flex-row justify-between gap-1 sm:gap-16 items-center"
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <div className="my-2 flex flex-1 flex-col w-full gap-2 mb-7">
-            <label className="font-bold">Email</label>
-            {/*Email with valiation */}
-            <div className="flex">
-              <Input
-                type="email"
-                className="text-black"
-                name="email"
-                required={true}
-                onChange={(e) => setInputtedEmail(e.target.value)}
-              />
-              <Button type="button" className="ml-2" onClick={handleAddEmail}>
-                Add
-                <CirclePlus className="ml-2" size={18} />
-              </Button>
-            </div>
+        <div className="my-4 flex flex-col gap-2 md:w-1/2">
+          <label className="font-bold text-white">Email</label>
+          {/*Email with valiation */}
+          <div className="flex">
+            <Input
+              type="email"
+              className="text-black bg-gradient-to-b from-blue-100 to-white"
+              name="email"
+              required={true}
+              onChange={(e) => setInputtedEmail(e.target.value)}
+            />
+            <Button type="button" className="ml-2 text-black bg-white" onClick={handleAddEmail}>
+              Add
+              <CirclePlus className="ml-2" size={18} />
+            </Button>
           </div>
-        </form>
+        </div>
       </div>
       <div className="pb-10 pt-2">
         <h2 className="font-bold text-2xl mb-2 text-primary">

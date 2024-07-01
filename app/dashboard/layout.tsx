@@ -123,8 +123,9 @@ export default function DashLayout({
                 " grid items-start px-2 text-base font-medium lg:px-4"
               }
             >
-              {pathArray.map((path) => (
+              {pathArray.map((path, index) => (
                 <Link
+                  key={index}
                   href={path.link}
                   className={cn(
                     "flex items-center gap-2 rounded-xl hover:pl-4 transition-all duration-300 px-3 py-2 text-muted-foreground hover:text-foreground hover:shadow active:shadow-sm",
@@ -178,8 +179,9 @@ export default function DashLayout({
                 >
                   <span className="sr-only">Brave Inc</span>
                 </Link>
-                {pathArray.map((path) => (
+                {pathArray.map((path, index) => (
                   <a
+                    key={index}
                     href={path.link}
                     className={
                       "flex items-center gap-2 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground " +
