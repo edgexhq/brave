@@ -58,7 +58,6 @@ export default function RecordAnswerSection({
   };
 
   const UpdateUserAnswer = async () => {
-    console.log(userAnswer);
     setLoading(true);
     const feedbackPrompt =
       "Question:" +
@@ -100,7 +99,7 @@ export default function RecordAnswerSection({
     <div className="flex items-center justify-center flex-col">
       <div className="flex flex-col justify-center items-center bg-black rounded-lg p-5">
         <Image
-          src={"/webcam.png"}
+          src={"/logo-white-256x256.png"}
           width={200}
           height={200}
           className="absolute"

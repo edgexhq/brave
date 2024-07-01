@@ -20,8 +20,6 @@ export default function InterviewDashboard() {
           <AddNewInterview />
         </div>
       </div>
-
-      {/* Previous Interview List  */}
       <InterviewList />
     </div>
   );

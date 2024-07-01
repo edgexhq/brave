@@ -48,7 +48,6 @@ function FormUi({
 
   const onFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData);
 
     const result = await db.insert(userResponses).values({
       jsonResponse: formData,

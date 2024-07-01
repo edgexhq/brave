@@ -5,7 +5,6 @@ export default function InputBar({ emails, setEmails }: any) {
   const handleDelete = (id: any) => {
     setEmails(emails.filter((email: any) => email.id !== id));
   };
-  console.log(emails);
   return (
     <div className="container mx-auto p-1">
       <div className="flex flex-wrap gap-4">
