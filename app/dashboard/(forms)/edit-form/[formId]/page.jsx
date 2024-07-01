@@ -101,8 +101,7 @@ function EditForm({ params }) {
         )
       )
       .returning({ id: JsonForms.id });
-
-    toast.success("Updated!!!");
+    if (result) toast.success("Updated!!!");
   };
 
   return (
@@ -118,7 +117,6 @@ function EditForm({ params }) {
           <div className="flex gap-2">
             <Link href={"/aiform/" + record?.id} target="_blank">
               <Button className="flex gap-2">
-                {" "}
                 <SquareArrowOutUpRight className="h-5 w-5" /> Live Preview
               </Button>
             </Link>

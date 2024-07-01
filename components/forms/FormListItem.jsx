@@ -38,7 +38,7 @@ function FormListItem({ formRecord, jsonForm }) {
   };
   jsonForm = JSON.parse(jsonForm);
   return (
-    <div className="border hover:scale-105 transition-all duration-500 hover:shadow-md shadow-sm rounded-lg p-4 pr-6">
+    <div className="border hover:scale-105 transition-all hover:border-primary duration-300 hover:shadow-md shadow-sm rounded-lg p-4 pr-6">
       <div className="flex justify-between">
         <h2></h2>
 

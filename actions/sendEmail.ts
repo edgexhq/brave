@@ -1,4 +1,5 @@
-import { MarkdownProps } from "@react-email/components";
+"use server"
+
 import { generateEmailBody, sendEmail } from "./generateEmail";
 import {marked} from 'marked';
 
@@ -14,9 +15,7 @@ export async function sendToAll(
 }
 
 async function send(content: string, email: string, subject: string) {
-  // Needed markdown content
   const htmlContent = marked(content) as string;
-  console.log(htmlContent);
   const emailBody = await generateEmailBody(htmlContent, subject);
   await sendEmail(emailBody, email);
 }
