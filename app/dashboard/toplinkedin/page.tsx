@@ -38,7 +38,7 @@ export default function TopLinkedIn() {
             headers: {
                 'content-type': 'application/json',
                 'x-rapidapi-host': 'linkedin-jobs-search.p.rapidapi.com',
-                'x-rapidapi-key': 'da0012dbb0mshc60ac5df92dd61ep159170jsn371dc02729b3'
+                'x-rapidapi-key': '6c2ecc1cb1msh391f17c98609634p100a4cjsnc4908da78d9a'
             },
             body: JSON.stringify({
                 search_terms: jobPosition,
