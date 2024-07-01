@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/app/components/ui/button";
 import { Edit, Share, Trash } from "lucide-react";
 import React from "react";
@@ -12,13 +13,12 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/app/components/ui/alert-dialog";
-import { useUser } from "@clerk/nextjs";
 import { db } from "@/lib/utils/db";
 import { JsonForms } from "@/lib/utils/schema";
 import { and, eq } from "drizzle-orm";
 import { toast } from "sonner";
 import { RWebShare } from "react-web-share";
-import { revalidatePath } from "next/cache";
+import { useUser } from "@clerk/nextjs";
 
 function FormListItem({ formRecord, jsonForm }) {
   const { user } = useUser();
@@ -31,14 +31,14 @@ function FormListItem({ formRecord, jsonForm }) {
           eq(JsonForms.createdBy, user?.primaryEmailAddress?.emailAddress)
         )
       );
-
     if (result) {
       toast.success("Form Deleted!!!");
-      revalidatePath("/dashboard/forms");
+      if (typeof window !== "undefined") window.location.reload();
     }
   };
+  jsonForm = JSON.parse(jsonForm);
   return (
-    <div className="border hover:scale-105 transition-all min-w-60 duration-500 hover:shadow-md shadow-sm rounded-lg p-4">
+    <div className="border hover:scale-105 transition-all duration-500 hover:shadow-md shadow-sm rounded-lg p-4 pr-6">
       <div className="flex justify-between">
         <h2></h2>
 
@@ -67,7 +67,7 @@ function FormListItem({ formRecord, jsonForm }) {
         {jsonForm?.formTitle}
       </h2>
       <h2 className="text-sm text-gray-500 line-clamp-1 pb-4">
-        {jsonForm?.formHeading}
+        {jsonForm?.formHeading || "A Form"}
       </h2>
       <hr className="my-4"></hr>
       <div className="flex justify-between">
@@ -76,10 +76,9 @@ function FormListItem({ formRecord, jsonForm }) {
             text:
               jsonForm?.formHeading +
               " , Build your form in seconds with AI form Builder ",
-            url: process.env.NEXT_PUBLIC_BASE_URL + "aiform/" + formRecord?.id,
+            url: process.env.NEXT_PUBLIC_BASE_URL + "/aiform/" + formRecord?.id,
             title: jsonForm?.formTitle,
           }}
-          onClick={() => console.log("shared successfully!")}
         >
           <Button variant="outline" size="sm" className="flex gap-2">
             <Share size={17} /> Share

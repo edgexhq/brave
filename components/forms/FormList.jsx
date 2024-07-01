@@ -1,37 +1,36 @@
-"use client";
-
 import { db } from "@/lib/utils/db";
 import { JsonForms } from "@/lib/utils/schema";
-import { useUser } from "@clerk/nextjs";
 import { desc, eq } from "drizzle-orm";
-import React, { useEffect, useState } from "react";
 import FormListItem from "./FormListItem";
+import { currentUser } from "@clerk/nextjs/server";
+import CreateForm from "./CreateForm";
 
 async function FormList() {
-  const { user } = useUser();
-  const [formList, setFormList] = useState([]);
+  const user = await currentUser();
 
-  const result = await db
+  const formList = await db
     .select()
     .from(JsonForms)
     .where(eq(JsonForms.createdBy, user?.primaryEmailAddress?.emailAddress))
     .orderBy(desc(JsonForms.id));
-
-  setFormList(result);
-  console.log(result);
-
   return (
     <div className="py-10 px-4">
       <h2 className="font-bold text-3xl">Your Forms</h2>
-      <div className="mt-5 grid grid-cols-2 md:grid-cols-3 gap-5">
-        {formList.map((form, index) => (
-          <div key={index}>
+      <div className="mt-5 flex flex-row flex-wrap gap-5">
+        {formList.length > 0 ? (
+          formList.map((form) => (
             <FormListItem
-              jsonForm={JSON.parse(form.jsonform)}
+              key={form.id}
               formRecord={form}
+              jsonForm={form.jsonform}
             />
+          ))
+        ) : (
+          <div className=" text-muted-foreground space-y-2">
+            <p>You have not created any forms yet.</p>
+            <CreateForm />
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
