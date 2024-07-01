@@ -1,10 +1,10 @@
 # Brave - Power Your Interviews with Brave AI
 
-## Introduction
-Welcome to Brave, the ultimate AI-powered interview preparation suite. Don't be afraid to ace that interview and crack the job! We've got you covered. Be smarter, be Brave, and use Brave!
+![SS](app/opengraph-image.png)
+Be smarter, be Brave, and use Brave!
 
 ## Project Overview
-Brave is designed to simplify the interview process with advanced AI technology. Our platform helps you generate, personalize, and share detailed interview forms. Prepare efficiently with access to tips, mock interviews, and expert insights. Create standout resumes that impress and pass applicant tracking systems (ATS) in minutes.
+Welcome to Brave, the ultimate AI-powered interview preparation suite. Don't be afraid to ace that interview and crack the job! We've got you covered. Brave is designed to simplify the interview process with advanced AI technology. Our platform helps you generate, personalize, and share detailed interview forms. Prepare efficiently with access to tips, mock interviews, and expert insights. Create standout resumes that impress and pass applicant tracking systems (ATS) in minutes.
 
 ## Features
 - **AI-Driven Efficiency**

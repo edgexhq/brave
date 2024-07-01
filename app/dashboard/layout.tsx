@@ -1,7 +1,6 @@
 "use client";
 import {
   BarChart,
-  Bell,
   Bot,
   Home,
   LinkedinIcon,
@@ -10,8 +9,9 @@ import {
   Newspaper,
   Search,
   Speech,
+  Star,
   TableProperties,
-  Timer
+  Timer,
 } from "lucide-react";
 
 import { Space_Grotesk } from "next/font/google";
@@ -29,6 +29,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const inter = Space_Grotesk({ subsets: ["latin"] });
 
@@ -38,7 +39,7 @@ export default function DashLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const paths = pathname.split("/")?.toReversed();
+  const paths = pathname.split("/").reverse();
   console.log(paths[0]);
 
   const pathArray = [
@@ -83,10 +84,10 @@ export default function DashLayout({
       link: "/dashboard/chatbot",
     },
     {
-      name: 'history',
+      name: "history",
       icon: <Timer size={16} />,
-      link: '/dashboard/history'
-    }
+      link: "/dashboard/history",
+    },
   ];
 
   const activePath = pathArray.filter((path) => path.name === paths[0])[0];
@@ -111,7 +112,7 @@ export default function DashLayout({
               </span>
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
-              <Bell color="#e5d70d" fill="#e5d70d" size={16} />
+              <Star color="#e5d70d" fill="#e5d70d" size={16} />
               <span className="sr-only">Toggle notifications</span>
             </Button>
           </div>
@@ -125,12 +126,12 @@ export default function DashLayout({
               {pathArray.map((path) => (
                 <Link
                   href={path.link}
-                  className={
-                    "flex items-center gap-2 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground " +
-                    (path.name === activePath?.name
+                  className={cn(
+                    "flex items-center gap-2 rounded-xl hover:pl-4 transition-all duration-300 px-3 py-2 text-muted-foreground hover:text-foreground hover:shadow active:shadow-sm",
+                    path.name === activePath?.name
                       ? "bg-secondary text-primary border"
-                      : "")
-                  }
+                      : ""
+                  )}
                 >
                   {path.icon}
                   {path.name}.

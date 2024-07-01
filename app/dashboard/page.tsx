@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import {
   Card,
   CardHeader,
@@ -7,7 +7,14 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import { ArrowRight, Speech, TableProperties } from "lucide-react";
+import {
+  ArrowRight,
+  BotMessageSquare,
+  Loader2,
+  MailPlus,
+  Speech,
+  TableProperties,
+} from "lucide-react";
 import Welcome from "@/components/Welcome";
 import Link from "next/link";
 import TemplateCard from "@/components/content/TemplateCard";
@@ -21,13 +28,15 @@ export default function Dashboard({}: Props) {
       <div className="w-full flex flex-col gap-8 md:p-5">
         <Suspense
           fallback={
-            <div className="min-h-20 bg-secondary w-full p-10">Loading...</div>
+            <div className="bg-gradient-to-l from-cyan-300 via-blue-500 to-purple-500 text-white relative group overflow-hidden rounded-lg transition-all hover:shadow min-h-36 sm:min-h-52">
+              <Loader2 size={50} className="mx-auto animate-spin mt-20" />
+            </div>
           }
         >
           <Welcome />
         </Suspense>
-        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Card className="hover:-translate-y-1 duration-500 transition-all border border-purple-500">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-purple-500">
             <CardHeader className="flex gap-4">
               <Speech size={50} />
               <div>
@@ -45,13 +54,50 @@ export default function Dashboard({}: Props) {
               </Button>
             </CardContent>
           </Card>
-          <Card className="hover:-translate-y-1 duration-500 transition-all border border-cyan-500">
+          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-cyan-500">
             <CardHeader className="flex gap-4">
               <TableProperties size={50} />
               <div>
                 <CardTitle>AI Forms ✨</CardTitle>
                 <CardDescription>
                   Create full fledged forms within seconds with AI.
+                </CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <Button asChild size={"sm"}>
+                <Link href="/dashboard/forms">
+                  Create
+                  <ArrowRight size={18} />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-blue-500">
+            <CardHeader className="flex gap-4">
+              <BotMessageSquare size={50} />
+              <div>
+                <CardTitle>AI Chatbot ✨</CardTitle>
+                <CardDescription>
+                  Talk , discuss and get help from AI Chatbot.
+                </CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <Button size={"sm"} asChild>
+                <Link href="/dashboard/interview">
+                  Chat <ArrowRight size={18} />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-violet-500">
+            <CardHeader className="flex gap-4">
+              <MailPlus size={50} />
+              <div>
+                <CardTitle>AI Emailer ✨</CardTitle>
+                <CardDescription>
+                  Send Emails to multiple persons with AI generated content.
                 </CardDescription>
               </div>
             </CardHeader>

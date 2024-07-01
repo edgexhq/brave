@@ -2,33 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-interface NewsProps {
-  urlToImage: string;
-  title: string;
-  description: string;
-  publishedAt: string;
-  url: string;
-}
+import { headlines } from "./headlines";
 
 const page = () => {
-  const [newsData, setNewsData] = useState([]);
-  useEffect(() => {
-    fetch(
-      "https://newsapi.org/v2/everything?q=jobs&apiKey=04bfb74e23534465b7e4be3ca86f130e"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data.articles);
-        setNewsData(data.articles);
-      });
-  }, []);
 
   return (
     <div className="container mx-auto px-4 py-12 md:px-6 lg:py-16">
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {newsData.map((news: NewsProps, index: number) => {
+        {headlines.map((news: any, index: number) => {
           return (
             <div key={index} className="rounded-lg overflow-hidden shadow-lg">
               <Image

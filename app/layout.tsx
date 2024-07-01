@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 export const metadata = {
   title: "Brave",
   description: "Your Next gen AI interview prep and taking platform",
+  metadataBase: new URL("https://braveai.vercel.app"),
 };
 
 export default function RootLayout({
@@ -16,7 +17,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-          <main className="flex min-h-screen flex-col items-center justify-between overflow-x-hidden bg-white">
+          <main className="flex min-h-screen flex-col items-center justify-between overflow-x-hidden">
             {children}
           </main>
           <Toaster richColors />

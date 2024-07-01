@@ -1,16 +1,12 @@
 "use server";
 
-import nodemailer from "nodemailer";
+import nodemailer from 'nodemailer';
+
+
 
 export async function generateEmailBody(content: string, subject1: string) {
   const subject = subject1;
-  const body = `
-    <div style="font-family:sans;">
-    <div style="border: 1px solid #ff4968; padding: 10px; background-color:rgb(56, 23, 29,0.7);border-radius:15px;color:white;">
-      ${content}
-    </div>
-  </div>
-      `;
+  const body = content;
 
   return { subject, body };
 }
@@ -20,7 +16,7 @@ const transporter = nodemailer.createTransport({
   service: "hotmail",
   port: 2525,
   auth: {
-    user: "xevenbiswas@outlook.com",
+    user: "edgexofficial@outlook.com",
     pass: process.env.EMAIL_PW,
   },
   maxConnections: 1,
@@ -28,7 +24,7 @@ const transporter = nodemailer.createTransport({
 
 export const sendEmail = async (emailContent: EmailContent, sendTo: string) => {
   const mailOptions = {
-    from: "xevenbiswas@outlook.com",
+    from: "edgexofficial@outlook.com",
     to: sendTo,
     html: emailContent.body,
     subject: emailContent.subject,
