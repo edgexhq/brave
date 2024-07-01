@@ -1,6 +1,5 @@
 import { Button } from "@/app/components/ui/button";
 import { Edit, Share, Trash } from "lucide-react";
-import Link from "next/link";
 import React from "react";
 import {
   AlertDialog,
@@ -19,8 +18,9 @@ import { JsonForms } from "@/lib/utils/schema";
 import { and, eq } from "drizzle-orm";
 import { toast } from "sonner";
 import { RWebShare } from "react-web-share";
+import { revalidatePath } from "next/cache";
 
-function FormListItem({ formRecord, jsonForm, refreshData }) {
+function FormListItem({ formRecord, jsonForm }) {
   const { user } = useUser();
   const onDeleteForm = async () => {
     const result = await db
@@ -34,7 +34,7 @@ function FormListItem({ formRecord, jsonForm, refreshData }) {
 
     if (result) {
       toast.success("Form Deleted!!!");
-      refreshData();
+      revalidatePath("/dashboard/forms");
     }
   };
   return (

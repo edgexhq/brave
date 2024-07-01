@@ -6,7 +6,9 @@ export interface TEMPLATE {
   name: string,
   desc: string,
   icon: string,
-  category: string,
+  category?
+  
+  : string,
   slug: string,
   aiPrompt: string,
   form?: FORM[]
@@ -38,9 +40,9 @@ function TemplateListSection({ userSearchInput }: any) {
 
   return (
     <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-5 mb-16'>
-      {/* @ts-ignore */}
-      {templateList.map((item: TEMPLATE) => (
-        <TemplateCard {...item} />
+      
+      {templateList.map((item:TEMPLATE,index) => (
+        <TemplateCard {...item} key={index} />
       ))}
     </div>
   )

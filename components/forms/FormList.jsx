@@ -7,22 +7,18 @@ import { desc, eq } from "drizzle-orm";
 import React, { useEffect, useState } from "react";
 import FormListItem from "./FormListItem";
 
-function FormList() {
+async function FormList() {
   const { user } = useUser();
   const [formList, setFormList] = useState([]);
-  useEffect(() => {
-    user && GetFormList();
-  }, [user]);
-  const GetFormList = async () => {
-    const result = await db
-      .select()
-      .from(JsonForms)
-      .where(eq(JsonForms.createdBy, user?.primaryEmailAddress?.emailAddress))
-      .orderBy(desc(JsonForms.id));
 
-    setFormList(result);
-    console.log(result);
-  };
+  const result = await db
+    .select()
+    .from(JsonForms)
+    .where(eq(JsonForms.createdBy, user?.primaryEmailAddress?.emailAddress))
+    .orderBy(desc(JsonForms.id));
+
+  setFormList(result);
+  console.log(result);
 
   return (
     <div className="py-10 px-4">
@@ -33,7 +29,6 @@ function FormList() {
             <FormListItem
               jsonForm={JSON.parse(form.jsonform)}
               formRecord={form}
-              refreshData={GetFormList}
             />
           </div>
         ))}
