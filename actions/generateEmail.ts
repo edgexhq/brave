@@ -1,6 +1,8 @@
 "use server";
 
-import nodemailer from "nodemailer";
+import nodemailer from 'nodemailer';
+
+
 
 export async function generateEmailBody(content: string, subject1: string) {
   const subject = subject1;

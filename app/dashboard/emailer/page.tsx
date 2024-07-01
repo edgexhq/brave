@@ -56,6 +56,7 @@ const page = () => {
     const [emails, setEmails] = useState<any>([])
     const [inputtedEmail, setInputtedEmail] = useState<string>('')
     const handleAddEmail = () => {
+        if (!inputtedEmail) return
         setEmails(
             emails.concat({
                 id: emails.length + 1,
@@ -74,7 +75,7 @@ const page = () => {
                         <label className='font-bold'>Email</label>
                         {/*Email with valiation */}
                         <div className="flex">
-                            <Input type='email' name='email' required={true} onChange={(e) => setInputtedEmail(e.target.value)} />
+                            <Input type='email' className="text-black" name='email' required={true} onChange={(e) => setInputtedEmail(e.target.value)} />
                             <Button type="button" className="ml-2 w-10 h-10 rounded-full p-0" variant={"secondary"} onClick={handleAddEmail}><CirclePlus className="text-blue-500" size={18} /></Button>
                         </div>
                     </div>
