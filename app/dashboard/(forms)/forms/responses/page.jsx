@@ -1,28 +1,16 @@
-"use client";
-
 import { FormListItemResp } from "@/components/forms/response/FormListItemResp";
 import { db } from "@/lib/utils/db";
 import { JsonForms } from "@/lib/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import { eq } from "drizzle-orm";
-import { useEffect, useState } from "react";
 
-function Responses() {
+async function Responses() {
   const { user } = useUser();
-  const [formList, setFormList] = useState();
+  const formList = await db
+    .select()
+    .from(JsonForms)
+    .where(eq(JsonForms.createdBy, user?.primaryEmailAddress?.emailAddress));
 
-  useEffect(() => {
-    user && getFormList();
-  }, [user]);
-
-  const getFormList = async () => {
-    const result = await db
-      .select()
-      .from(JsonForms)
-      .where(eq(JsonForms.createdBy, user?.primaryEmailAddress?.emailAddress));
-
-    setFormList(result);
-  };
   return (
     formList && (
       <div className="py-10 px-4">

@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/app/components/ui/button";
 import { db } from "@/lib/utils/db";
 import { userResponses } from "@/lib/utils/schema";
