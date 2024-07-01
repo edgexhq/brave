@@ -24,7 +24,6 @@ function LiveAiForm({ params }) {
 
     setRecord(result[0]);
     setJsonForm(JSON.parse(result[0].jsonform));
-    console.log(result);
   };
   return (
     <div
