@@ -4,6 +4,7 @@ import ShimmerButton from "@/components/ui/shimmerButton";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import SparklesText from "@/components/ui/sparklestxt";
 
 const Banner = () => {
   return (
@@ -22,7 +23,10 @@ const Banner = () => {
             >
               <h1 className="text-4xl font-bold tracking-tight max-w-4xl mx-auto text-navyblue sm:text-5xl lg:text-7xl md:4px">
                 Power your interviews with{" "}
-                <span className="text-primary">Brave</span> AI
+                <span>
+                  <SparklesText text="Brave" />{" "}
+                </span>
+                AI
               </h1>
             </motion.div>
             <motion.div
