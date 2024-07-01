@@ -186,15 +186,11 @@ hr {
 }
 
 #pic {
-  filter: drop-shadow(2px 6px 12px rgba(100, 51, 30, 0.4));
+  filter: drop-shadow(2px 6px 12px rgba(30, 74, 100, 0.4));
 }
 #pic:hover {
-  filter: drop-shadow(2px 6px 12px rgba(132, 70, 43, 0.65));
+  filter: drop-shadow(2px 6px 12px rgba(43, 108, 132, 0.65));
 }
-::selection {
-  background: #d03e09;
-}
-
 /* Headings */
 .markdown-body h1 {
   font-size: 2.5rem; /* 40px */
@@ -241,7 +237,7 @@ hr {
 
 /* Links */
 .markdown-body a {
-  @apply text-orange-500;
+  @apply text-blue-500;
   text-decoration: none;
 }
 
@@ -258,16 +254,16 @@ hr {
 }
 
 .markdown-body blockquote {
-  border-left: 4px solid #957b5d;
+  border-left: 4px solid #5d8a95;
   margin-left: 0;
   margin-right: 0;
   padding-left: 15px;
-  color: #a3743d;
+  color: #3d81a3;
 }
 
 .markdown-body pre {
   background-color: #464646dc;
-  border-left: 3px solid #e3843b;
+  border-left: 3px solid #098ed0;
   color: white;
   padding: 10px;
   overflow-x: auto;
@@ -303,4 +299,9 @@ hr {
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.bg-zz {
+  background: url("https://assets.lummi.ai/assets/QmNtE7zSUEDyVUNaG8fS4ADewRKsF1hRj6PyfhUSEK44y9?auto=format&w=1500");
+  background-position: center;
 }

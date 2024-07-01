@@ -2,17 +2,16 @@
 
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import React from "react";
 
-export default function InterviewItemCard({ interview }) // }: {
-//   interview: {
-//     mockId: string;
-//     jobPosition: string;
-//     jobExperience: string;
-//     createdAt: string;
-//   };
-// }
-{
+export default function InterviewItemCard({ interview }) {
+  // }: {
+  //   interview: {
+  //     mockId: string;
+  //     jobPosition: string;
+  //     jobExperience: string;
+  //     createdAt: string;
+  //   };
+  // }
   const router = useRouter();
 
   const onStart = () => {
@@ -24,7 +23,7 @@ export default function InterviewItemCard({ interview }) // }: {
   };
 
   return (
-    <div className="border-2 shadow-sm rounded-lg p-3 hover:border-blue-600 ease-in-out duration-300 transition-all hover:scale-105">
+    <div className="border shadow-sm rounded-lg p-3 hover:border-primary ease-in-out duration-300 transition-all hover:scale-105">
       <h2 className="font-bold text-primary">{interview?.jobPosition}</h2>
       <h2 className="text-sm text-gray-600">
         {interview?.jobExperience} Years of Experience

@@ -45,7 +45,7 @@ export default function Feedback({ params }) {
   };
 
   return (
-    <div className="p-10">
+    <div className="w-full flex flex-col gap-8 md:p-5">
       {feedbackList?.length == 0 ? (
         <h2 className="font-bold text-xl text-gray-500">
           No Interview Feedback Record Found
@@ -94,7 +94,7 @@ export default function Feedback({ params }) {
         </>
       )}
 
-      <Button onClick={() => router.replace("/dashboard/interview")}>
+      <Button onClick={() => router.replace("/dashboard/interview")} className="mt-2">
         Go Home
       </Button>
     </div>

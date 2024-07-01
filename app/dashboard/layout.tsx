@@ -1,7 +1,6 @@
 "use client";
 import {
   BarChart,
-  Bell,
   Bot,
   Home,
   LinkedinIcon,
@@ -10,12 +9,13 @@ import {
   Newspaper,
   Search,
   Speech,
+  Star,
   TableProperties,
+  Timer,
 } from "lucide-react";
 
 import { Space_Grotesk } from "next/font/google";
 import Link from "next/link";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -29,6 +29,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const inter = Space_Grotesk({ subsets: ["latin"] });
 
@@ -38,7 +39,7 @@ export default function DashLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const paths = pathname.split("/")?.toReversed();
+  const paths = pathname.split("/").reverse();
   console.log(paths[0]);
 
   const pathArray = [
@@ -82,6 +83,11 @@ export default function DashLayout({
       icon: <Bot size={16} />,
       link: "/dashboard/chatbot",
     },
+    {
+      name: "history",
+      icon: <Timer size={16} />,
+      link: "/dashboard/history",
+    },
   ];
 
   const activePath = pathArray.filter((path) => path.name === paths[0])[0];
@@ -91,17 +97,22 @@ export default function DashLayout({
       <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <Link href="/" className="flex items-center gap-1 font-semibold">
+            <Link
+              href="/"
+              className="flex items-center gap-[3px] font-semibold"
+            >
               <Image
-                src={"/logo-base-256x256.png"}
+                src={"/logo-black-256x256.png"}
                 width={32}
                 height={32}
                 alt="Brave Inc"
               />
-              <span className="">Brave</span>
+              <span className="text-lg font-semibold tracking-tight ">
+                Brave
+              </span>
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
-              <Bell color="#e5d70d" fill="#e5d70d" size={16} />
+              <Star color="#e5d70d" fill="#e5d70d" size={16} />
               <span className="sr-only">Toggle notifications</span>
             </Button>
           </div>
@@ -112,15 +123,16 @@ export default function DashLayout({
                 " grid items-start px-2 text-base font-medium lg:px-4"
               }
             >
-              {pathArray.map((path) => (
+              {pathArray.map((path, index) => (
                 <Link
+                  key={index}
                   href={path.link}
-                  className={
-                    "flex items-center gap-2 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground " +
-                    (path.name === activePath?.name
+                  className={cn(
+                    "flex items-center gap-2 rounded-xl hover:pl-4 transition-all duration-300 px-3 py-2 text-muted-foreground hover:text-foreground hover:shadow active:shadow-sm",
+                    path.name === activePath?.name
                       ? "bg-secondary text-primary border"
-                      : "")
-                  }
+                      : ""
+                  )}
                 >
                   {path.icon}
                   {path.name}.
@@ -146,7 +158,7 @@ export default function DashLayout({
           </div>
         </div>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col overflow-hidden">
         <header className="flex h-14 items-center gap-4 border-b bg-transparent px-4 lg:h-[60px] lg:px-6">
           <Sheet>
             <SheetTrigger asChild>
@@ -167,61 +179,21 @@ export default function DashLayout({
                 >
                   <span className="sr-only">Brave Inc</span>
                 </Link>
-                <Link
-                  href="/dashboard"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  Dashboard
-                </Link>
-
-                <Link
-                  href="/dashboard/interview"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  Mock Interview
-                </Link>
-
-                <Link
-                  href="/dashboard/forms"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  AI Forms
-                </Link>
-
-                <Link
-                  href="/dashboard/content"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  Content Generator
-                </Link>
-
-                <Link
-                  href="/dashboard/toplinkedin"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  Top Jobs
-                </Link>
-
-                <Link
-                  href="/dashboard/headlines"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  Headlines
-                </Link>
-
-                <Link
-                  href="/dashboard/emailer"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Home className="h-5 w-5" />
-                  Email Scheduler
-                </Link>
+                {pathArray.map((path, index) => (
+                  <a
+                    key={index}
+                    href={path.link}
+                    className={
+                      "flex items-center gap-2 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground " +
+                      (path.name === activePath?.name
+                        ? "bg-secondary text-primary border"
+                        : "")
+                    }
+                  >
+                    {path.icon}
+                    {path.name}.
+                  </a>
+                ))}
               </nav>
               <div className="mt-auto">
                 <Card>
@@ -255,7 +227,7 @@ export default function DashLayout({
           </div>
           <UserButton />
         </header>
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 max-h-screen overflow-y-scroll">
+        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 max-h-screen overflow-y-auto">
           {children}
         </main>
       </div>

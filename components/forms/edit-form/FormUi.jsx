@@ -30,7 +30,7 @@ function FormUi({
 }) {
   const [formData, setFormData] = useState();
   let formRef = useRef();
-  const { user, isSignedIn } = useUser();
+  const { isSignedIn } = useUser();
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -89,7 +89,7 @@ function FormUi({
     <form
       ref={(e) => (formRef = e)}
       onSubmit={onFormSubmit}
-      className="border p-5 md:w-[600px] rounded-lg"
+      className="border p-5 md:w-[600px] rounded-lg border-blue-500 overflow-hidden"
       data-theme={selectedTheme}
       style={{
         boxShadow: selectedStyle?.key == "boxshadow" && "5px 5px 0px black",
@@ -99,7 +99,7 @@ function FormUi({
       <h2 className="font-bold text-center pb-2 text-pretty break-words text-2xl md:text-3xl">
         {jsonForm?.formTitle}
       </h2>
-      <h2 className="text-sm md:text-base text-gray-400 text-center">
+      <h2 className="text-sm md:text-base text-muted-foreground text-center">
         {jsonForm?.formHeading}
       </h2>
 
@@ -107,7 +107,9 @@ function FormUi({
         <div key={index} className="flex items-center gap-2">
           {field.fieldType == "select" ? (
             <div className="my-3 w-full">
-              <label className="text-xs text-gray-500">{field.label}</label>
+              <label className="text-xs text-muted-foreground">
+                {field.label}
+              </label>
 
               <Select
                 required={field?.required}
@@ -130,7 +132,9 @@ function FormUi({
             </div>
           ) : field.fieldType == "radio" ? (
             <div className="w-full my-3">
-              <label className="text-xs text-gray-500">{field.label}</label>
+              <label className="text-xs text-muted-foreground">
+                {field.label}
+              </label>
 
               <RadioGroup required={field?.required}>
                 {field.options.map((item, index) => (
@@ -149,7 +153,9 @@ function FormUi({
             </div>
           ) : field.fieldType == "checkbox" ? (
             <div className="my-3 w-full">
-              <label className="text-xs text-gray-500">{field?.label}</label>
+              <label className="text-xs text-muted-foreground">
+                {field?.label}
+              </label>
               {field?.options ? (
                 field?.options?.map((item, index) => (
                   <div key={index} className="flex gap-2 items-center">
@@ -174,7 +180,9 @@ function FormUi({
             </div>
           ) : (
             <div className="my-3 w-full">
-              <label className="text-xs text-gray-500">{field.label}</label>
+              <label className="text-xs text-muted-foreground">
+                {field.label}
+              </label>
               <Input
                 type={field?.type}
                 placeholder={field.placeholder}

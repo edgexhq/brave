@@ -2,33 +2,26 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-interface NewsProps {
-  urlToImage: string;
-  title: string;
-  description: string;
-  publishedAt: string;
-  url: string;
-}
+import { headlines } from "./headlines";
 
 const page = () => {
-  const [newsData, setNewsData] = useState([]);
-  useEffect(() => {
-    fetch(
-      "https://newsapi.org/v2/everything?q=jobs&apiKey=04bfb74e23534465b7e4be3ca86f130e"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data.articles);
-        setNewsData(data.articles);
-      });
-  }, []);
 
   return (
-    <div className="container mx-auto px-4 py-12 md:px-6 lg:py-16">
+    <div className="w-full flex flex-col gap-8 md:p-5">
+      <div className="bg-gradient-to-tl from-green-300 via-blue-500 to-purple-600 p-10 rounded-lg mb-10">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-x-10 gap-y-4">
+          <div>
+            <h2 className="font-bold text-3xl text-white mb-2">
+              all the latest news about jobs.
+            </h2>
+            <h2 className="text-gray-200">
+              Stay informed with the latest news about jobs and employment.
+            </h2>
+          </div>
+        </div>
+      </div>
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {newsData.map((news: NewsProps, index: number) => {
+        {headlines.map((news: any, index: number) => {
           return (
             <div key={index} className="rounded-lg overflow-hidden shadow-lg">
               <Image
