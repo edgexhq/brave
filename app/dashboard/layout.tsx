@@ -1,7 +1,6 @@
 "use client";
 import {
   BarChart,
-  Bell,
   Bot,
   Home,
   LinkedinIcon,
@@ -10,6 +9,7 @@ import {
   Newspaper,
   Search,
   Speech,
+  Star,
   TableProperties,
   Timer,
 } from "lucide-react";
@@ -112,7 +112,7 @@ export default function DashLayout({
               </span>
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
-              <Bell color="#e5d70d" fill="#e5d70d" size={16} />
+              <Star color="#e5d70d" fill="#e5d70d" size={16} />
               <span className="sr-only">Toggle notifications</span>
             </Button>
           </div>
