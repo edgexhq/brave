@@ -12,7 +12,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { db } from "@/lib/utils/db";
-import { chatSession } from "@/lib/utils/gemini-model";
 import { MockInterview } from "@/lib/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import { LoaderCircle } from "lucide-react";
@@ -28,7 +27,6 @@ function AddNewInterview() {
   const [jobDesc, setJobDesc] = useState();
   const [jobExperience, setJobExperience] = useState();
   const [loading, setLoading] = useState(false);
-  const [jsonResponse, setJsonResponse] = useState([]);
   const router = useRouter();
   const { user } = useUser();
 
@@ -37,29 +35,28 @@ function AddNewInterview() {
     e.preventDefault();
 
     const InputPrompt =
-      "Job position: " +
+      "Job position - " +
       jobPosition +
-      ", Job Description: " +
+      ", Job Description- " +
       jobDesc +
-      ", Years of Experience : " +
+      ", Years of Experience - " +
       jobExperience +
-      ", Depending on Job Position, Job Description & Years of Experience, give : " +
+      ", Depending on Job Position, Job Description & Years of Experience, give us minimum " +
       process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT +
-      "Interview questions for it, with answers";
+      " Interview questions for it, with answers";
 
     try {
       const MockJsonResp = await generateQuestions(InputPrompt);
-      setJsonResponse(MockJsonResp);
-      console.log(MockJsonResp);
-
       const mckId = nanoid(12);
 
       if (MockJsonResp && MockJsonResp.length > 0) {
+        const serializedJsonResp = JSON.stringify(MockJsonResp);
+        console.log(serializedJsonResp);
         const resp = await db
           .insert(MockInterview)
           .values({
             mockId: mckId,
-            jsonMockResp: MockJsonResp,
+            jsonMockResp: serializedJsonResp,
             jobPosition: jobPosition,
             jobDesc: jobDesc,
             jobExperience: jobExperience,

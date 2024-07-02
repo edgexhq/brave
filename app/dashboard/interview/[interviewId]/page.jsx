@@ -12,13 +12,9 @@ function Interview({ params }) {
   const [interviewData, setInterviewData] = useState();
   const [webCamEnabled, setWebCamEnabled] = useState();
   useEffect(() => {
-    console.log(params.interviewId);
     GetInterviewDetails();
   }, []);
 
-  /**
-   * Used to Get Interview Details by MockId/Interview Id
-   */
   const GetInterviewDetails = async () => {
     const result = await db
       .select()
@@ -48,7 +44,6 @@ function Interview({ params }) {
           </div>
           <div className="p-5 border rounded-lg border-yellow-300 bg-yellow-50">
             <h2 className="flex gap-2 items-center text-yellow-500">
-              {" "}
               <Lightbulb />
               <strong>Information</strong>
             </h2>
@@ -72,7 +67,7 @@ function Interview({ params }) {
             <>
               <WebcamIcon className="h-72 w-full my-7 p-20 bg-secondary rounded-lg border" />
               <Button
-                variant="ghost"
+                variant="outline"
                 className="w-full"
                 onClick={() => setWebCamEnabled(true)}
               >

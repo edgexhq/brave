@@ -29,7 +29,7 @@ export async function generateQuestions(inputPrompt: string) {
 
 // console.log(
 //   generateQuestions(
-//     "job position: junior dev intern, Job Description: react, js, html, css, Years of Experience : 1 , Depending on Job Position, Job Description & Years of Experience give us 6 Interview question along with answer"
+//     "job position- junior dev intern, Job Description- react, js, html, css, Years of Experience - 1 , Depending on Job Position, Job Description & Years of Experience give us minimum Interview question along with answer"
 //   ).then((questions) => {
 //     console.log(questions);
 //   })

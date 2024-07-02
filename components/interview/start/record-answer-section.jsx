@@ -21,8 +21,6 @@ export default function RecordAnswerSection({
   const { user } = useUser();
   const [loading, setLoading] = useState(false);
   const {
-    error,
-    interimResult,
     isRecording,
     results,
     startSpeechToText,

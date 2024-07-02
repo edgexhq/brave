@@ -40,8 +40,6 @@ export default function DashLayout({
 }) {
   const pathname = usePathname();
   const paths = pathname.split("/").reverse();
-  console.log(paths[0]);
-
   const pathArray = [
     {
       name: "dashboard",

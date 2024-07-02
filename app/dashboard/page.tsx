@@ -117,8 +117,8 @@ export default function Dashboard({}: Props) {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 py-10 mb-12">
             {/* @ts-ignore */}
-            {Templates.slice(0, 8).map((item: TEMPLATE) => (
-              <TemplateCard {...item} />
+            {Templates.slice(0, 8).map((item: TEMPLATE, index) => (
+              <TemplateCard {...item} key={index} />
             ))}
           </div>
         </div>
