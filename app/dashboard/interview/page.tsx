@@ -1,5 +1,3 @@
-import { UserButton } from "@clerk/nextjs";
-import React from "react";
 import AddNewInterview from "@/components/interview/add-new-interview";
 import InterviewList from "@/components/interview/interview-list";
 
@@ -20,8 +18,6 @@ export default function InterviewDashboard() {
           <AddNewInterview />
         </div>
       </div>
-
-      {/* Previous Interview List  */}
       <InterviewList />
     </div>
   );

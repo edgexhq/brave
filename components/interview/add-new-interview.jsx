@@ -1,5 +1,6 @@
 "use client";
 
+import generateQuestions from "@/actions/generateQuesions";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -7,12 +8,10 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { db } from "@/lib/utils/db";
-import { chatSession } from "@/lib/utils/gemini-model";
 import { MockInterview } from "@/lib/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import { LoaderCircle } from "lucide-react";
@@ -20,6 +19,7 @@ import moment from "moment";
 import { nanoid } from "nanoid";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { toast } from "sonner";
 
 function AddNewInterview() {
   const [openDailog, setOpenDailog] = useState(false);
@@ -27,58 +27,59 @@ function AddNewInterview() {
   const [jobDesc, setJobDesc] = useState();
   const [jobExperience, setJobExperience] = useState();
   const [loading, setLoading] = useState(false);
-  const [jsonResponse, setJsonResponse] = useState([]);
   const router = useRouter();
   const { user } = useUser();
+
   const onSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
-    console.log(jobPosition, jobDesc, jobExperience);
 
     const InputPrompt =
-      "Job position: " +
+      "Job position - " +
       jobPosition +
-      ", Job Description: " +
+      ", Job Description- " +
       jobDesc +
-      ", Years of Experience : " +
+      ", Years of Experience - " +
       jobExperience +
-      " , Depending on Job Position, Job Description & Years of Experience give us " +
+      ", Depending on Job Position, Job Description & Years of Experience, give us minimum " +
       process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT +
-      " Interview question along with answer in JSON format [{ question: '',answer:''}]. Give the answer in JSON format.";
+      " Interview questions for it, with answers";
 
-    const result = await chatSession.sendMessage(InputPrompt);
-    const MockJsonResp = result.response
-      .text()
-      .replace("```json", "")
-      .replace("```", "");
-    setJsonResponse(MockJsonResp);
+    try {
+      const MockJsonResp = await generateQuestions(InputPrompt);
+      const mckId = nanoid(12);
 
-    const mckId = nanoid(12);
+      if (MockJsonResp && MockJsonResp.length > 0) {
+        const serializedJsonResp = JSON.stringify(MockJsonResp);
+        console.log(serializedJsonResp);
+        const resp = await db
+          .insert(MockInterview)
+          .values({
+            mockId: mckId,
+            jsonMockResp: serializedJsonResp,
+            jobPosition: jobPosition,
+            jobDesc: jobDesc,
+            jobExperience: jobExperience,
+            createdBy: user?.primaryEmailAddress?.emailAddress,
+            createdAt: moment().format("DD-MM-yyyy"),
+          })
+          .returning({
+            mockId: MockInterview.mockId,
+            jsonMockResp: MockInterview.jsonMockResp,
+          });
 
-    if (MockJsonResp) {
-      const resp = await db
-        .insert(MockInterview)
-        .values({
-          mockId: mckId,
-          jsonMockResp: MockJsonResp,
-          jobPosition: jobPosition,
-          jobDesc: jobDesc,
-          jobExperience: jobExperience,
-          createdBy: user?.primaryEmailAddress?.emailAddress,
-          createdAt: moment().format("DD-MM-yyyy"),
-        })
-        .returning({
-          mockId: MockInterview.mockId,
-          jsonMockResp: MockInterview.jsonMockResp,
-        });
-
-      console.log("Inserted ID:", resp);
-      if (resp) {
-        setOpenDailog(false);
-        router.push("/dashboard/interview/" + resp[0]?.mockId);
+        if (resp) {
+          setOpenDailog(false);
+          router.push("/dashboard/interview/" + resp[0]?.mockId);
+          toast.success("Interview created successfully");
+        }
+      } else {
+        console.log("MockJsonResp is undefined or empty");
+        toast.error("Something went wrong");
       }
-    } else {
-      console.log("ERROR");
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
     }
     setLoading(false);
   };
@@ -90,7 +91,9 @@ function AddNewInterview() {
          transition-all border-dashed"
         onClick={() => setOpenDailog(true)}
       >
-        <h2 className="text-lg text-black text-center font-semibold">+ start new.</h2>
+        <h2 className="text-lg text-black text-center font-semibold">
+          + start new.
+        </h2>
       </div>
       <Dialog open={openDailog}>
         <DialogContent className="max-w-2xl">

@@ -6,7 +6,6 @@ import { eq } from "drizzle-orm";
 
 async function Responses() {
   const user = await currentUser();
-  console.log(user);
   const formList = await db
     .select()
     .from(JsonForms)

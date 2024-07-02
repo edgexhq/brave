@@ -3,9 +3,7 @@
 import { Lightbulb, Volume2 } from "lucide-react";
 
 export default function QuestionsSection({
-  // @ts-ignore
   mockInterviewQuestion,
-  // @ts-ignore
   activeQuestionIndex,
 }) {
   const textToSpeach = (text) => {
@@ -16,6 +14,7 @@ export default function QuestionsSection({
       alert("Sorry, Your browser does not support text to speech");
     }
   };
+  console.log(mockInterviewQuestion);
 
   return (
     mockInterviewQuestion && (
