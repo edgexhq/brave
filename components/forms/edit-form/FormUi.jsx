@@ -58,6 +58,7 @@ function FormUi({
     if (result) {
       formRef.reset();
       toast.success("Response Submitted Successfully !");
+      redirect("/thanks");
     } else {
       toast.error("Error while saving your form !");
     }
