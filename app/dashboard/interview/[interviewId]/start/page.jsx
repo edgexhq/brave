@@ -5,7 +5,7 @@ import { db } from "@/lib/utils/db";
 import { MockInterview } from "@/lib/utils/schema";
 import { eq } from "drizzle-orm";
 import Link from "next/link";
-import React, { act, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 const QuestionsSection = dynamic(
