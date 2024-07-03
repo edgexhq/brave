@@ -88,12 +88,11 @@ const page = () => {
           <div className="flex">
             <Input
               type="email"
-              className="text-black bg-gradient-to-b from-blue-100 to-white"
               name="email"
               required={true}
               onChange={(e) => setInputtedEmail(e.target.value)}
             />
-            <Button type="button" className="ml-2 text-black bg-white" onClick={handleAddEmail}>
+            <Button type="button" className="ml-2" onClick={handleAddEmail}>
               Add
               <CirclePlus className="ml-2" size={18} />
             </Button>

@@ -1,7 +1,7 @@
 {
     "id": "Brave",
     "name": "Brave",
-    "short_name": "",
+    "short_name": "Brave",
     "scope": "/",
     "start_url": "/",
     "icons": [
