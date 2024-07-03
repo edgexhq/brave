@@ -1,3 +1,5 @@
+"use client";
+
 import { Input } from "@/components/ui/input";
 import React, { useRef, useState } from "react";
 import {
@@ -17,6 +19,7 @@ import { userResponses } from "@/lib/utils/schema";
 import moment from "moment";
 import { toast } from "sonner";
 import { SignInButton, useUser } from "@clerk/nextjs";
+import { redirect, useRouter } from "next/navigation";
 
 function FormUi({
   jsonForm,
@@ -46,6 +49,7 @@ function FormUi({
     });
   };
 
+  const router = useRouter();
   const onFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -58,7 +62,7 @@ function FormUi({
     if (result) {
       formRef.reset();
       toast.success("Response Submitted Successfully !");
-      redirect("/thanks");
+      router.push("/thanks");
     } else {
       toast.error("Error while saving your form !");
     }
