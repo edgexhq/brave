@@ -35,8 +35,8 @@ const Banner = () => {
               transition={{ duration: 1.6, delay: 0.5 }}
             >
               <p className="mt-6 text-lg max-w-prose text-center mx-auto leading-8 text-bluegray">
-                Dont be afraid! You can ace that interview! You can crack the
-                job! we got you covered. BE Smarter! Be Brave, Use{" "}
+                Don&apos;t be afraid! You can ace that interview! You can crack the
+                job! we got you covered. Be Smarter! Be Brave, Use{" "}
                 <span className="text-primary font-bold">Brave</span>!
               </p>
             </motion.div>
