@@ -10,6 +10,7 @@ import {
 import {
   ArrowRight,
   BotMessageSquare,
+  FileHeart,
   Loader2,
   MailPlus,
   Speech,
@@ -67,6 +68,25 @@ export default function Dashboard({}: Props) {
             <CardContent>
               <Button asChild size={"sm"}>
                 <Link href="/dashboard/forms">
+                  Create
+                  <ArrowRight size={18} />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-violet-500">
+            <CardHeader className="flex gap-4">
+              <FileHeart size={50} />
+              <div>
+                <CardTitle>AI Resume ✨</CardTitle>
+                <CardDescription>
+                  Create your resume with our easy-to-use AI resume builder.
+                </CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <Button asChild size={"sm"}>
+                <Link href="/dashboard/resume">
                   Create
                   <ArrowRight size={18} />
                 </Link>

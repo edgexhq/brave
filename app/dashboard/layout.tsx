@@ -2,6 +2,7 @@
 import {
   BarChart,
   Bot,
+  File,
   Home,
   LinkedinIcon,
   Mail,
@@ -57,9 +58,19 @@ export default function DashLayout({
       link: "/dashboard/forms",
     },
     {
+      name: "resume",
+      icon: <File size={16} />,
+      link: "/dashboard/resume",
+    },
+    {
       name: "content",
       icon: <BarChart size={16} />,
       link: "/dashboard/content",
+    },
+    {
+      name: "emailer",
+      icon: <Mail size={16} />,
+      link: "/dashboard/emailer",
     },
     {
       name: "toplinkedin",
@@ -70,11 +81,6 @@ export default function DashLayout({
       name: "headlines",
       icon: <Newspaper size={16} />,
       link: "/dashboard/headlines",
-    },
-    {
-      name: "emailer",
-      icon: <Mail size={16} />,
-      link: "/dashboard/emailer",
     },
     {
       name: "chatbot",
