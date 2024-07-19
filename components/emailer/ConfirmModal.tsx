@@ -75,7 +75,7 @@ export function ConfirmModal({
         </DialogTrigger>
       )}
 
-      {sent ? (
+      {!sent ? (
         <DialogContent className="sm:max-w-5xl bg-secondary max-h-[92vh] overflow-y-scroll p-2 sm:p-8">
           <div
             ref={emailmodal}
@@ -159,13 +159,13 @@ export function ConfirmModal({
                 height={500}
                 className="w-28 h-28 mx-auto rounded-full"
               />
-              <h4 className="text-5xl text-gray-800 font-bold mt-4">
+              <h4 className="text-4xl text-gray-800 font-bold mt-4">
                 All the emails have been sent to the following recipients
               </h4>
               <div className="mt-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {emails.map((email: any) => (
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center gap-3">
                       <Avatar className="h-8 w-8">
                         <AvatarImage src="/placeholder-user.jpg" />
                         <AvatarFallback>{email.receiver[0]}</AvatarFallback>
