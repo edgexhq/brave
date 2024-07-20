@@ -35,8 +35,8 @@ const Banner = () => {
               transition={{ duration: 1.6, delay: 0.5 }}
             >
               <p className="mt-6 text-lg max-w-prose text-center mx-auto leading-8 text-bluegray">
-                Don&apos;t be afraid! You can ace that interview! You can crack the
-                job! we got you covered. Be Smarter! Be Brave, Use{" "}
+                Don&apos;t be afraid! You can ace that interview! You can crack
+                the job! we got you covered. Be Smarter! Be Brave, Use{" "}
                 <span className="text-primary font-bold">Brave</span>!
               </p>
             </motion.div>
@@ -49,8 +49,9 @@ const Banner = () => {
           </div>
 
           <Image
-            src={"/assets/banner/dashboard.svg"}
+            src={"/assets/banner/dashboard.png"}
             alt="banner-image"
+            className="mt-10 rounded-2xl z-10 border border-cyan-800/20 shadow-xl md:shadow-2xl"
             width={1200}
             height={598}
           />

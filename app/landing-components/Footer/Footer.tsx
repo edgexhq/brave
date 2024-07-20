@@ -112,9 +112,12 @@ const Footer = () => {
                 width={24}
                 height={24}
               />
-              <h5 className="text-base font-normal text-offwhite">
-                edgex@gmail.com
-              </h5>
+              <a
+                href="mailto:edgexofficial@outlook.com"
+                className="text-base font-normal text-offwhite"
+              >
+                edgexofficial@outlook.com
+              </a>
             </div>
           </div>
         </div>

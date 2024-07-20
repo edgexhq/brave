@@ -3,12 +3,10 @@ import Companies from "./landing-components/Companies/Companies";
 import Buyers from "./landing-components/Buyers/index";
 import Provide from "./landing-components/Provide/index";
 import Why from "./landing-components/Why/index";
-import Network from "./landing-components/Network/index";
 import Clientsay from "./landing-components/Clientsay/index";
 import Newsletter from "./landing-components/Newsletter/Newsletter";
 import Navbar from "./landing-components/Navbar/Navbar";
 import Footer from "./landing-components/Footer/Footer";
-import { World } from "@/components/ui/Globe";
 import { Worldwide } from "./landing-components/Worldwide";
 
 export default function Home() {
