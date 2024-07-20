@@ -57,7 +57,6 @@
     "eslint-config-next": "14.2.4",
     "file-saver": "^2.0.5",
     "framer-motion": "^11.2.12",
-    "html2canvas": "^1.4.1",
     "html2canvas-pro": "^1.5.7",
     "jspdf": "^2.5.1",
     "lucide-react": "^0.399.0",

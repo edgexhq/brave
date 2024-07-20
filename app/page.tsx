@@ -8,6 +8,7 @@ import Newsletter from "./landing-components/Newsletter/Newsletter";
 import Navbar from "./landing-components/Navbar/Navbar";
 import Footer from "./landing-components/Footer/Footer";
 import { Worldwide } from "./landing-components/Worldwide";
+import { Team } from "./landing-components/team";
 
 export default function Home() {
   return (
@@ -19,7 +20,8 @@ export default function Home() {
         <Buyers />
         <Provide />
         <Why />
-        <Worldwide />
+        {/* <Worldwide /> */}
+        <Team />
         <Clientsay />
         <Newsletter />
       </div>
