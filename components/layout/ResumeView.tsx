@@ -1,8 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { FormProvider, useFormContext } from "@/lib/context/FormProvider";
-import React from "react";
+import html2canvas from "html2canvas-pro";
+import { jsPDF } from "jspdf";
+import { FormProvider } from "@/lib/context/FormProvider";
 import ResumePreview from "./my-resume/ResumePreview";
 import { usePathname } from "next/navigation";
 import { DownloadIcon, Share2Icon } from "lucide-react";
@@ -16,10 +17,22 @@ const FinalResumeView = ({
   isOwnerView: boolean;
 }) => {
   const path = usePathname();
-  const { formData } = useFormContext();
 
-  const handleDownload = () => {
-    window.print();
+  const downloadPDF = async () => {
+    const printArea = document.querySelector("#print-area") as HTMLElement;
+    if (printArea) {
+      const canvas = await html2canvas(printArea, { scale: 2 });
+      const imgData = canvas.toDataURL("image/png");
+
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "px",
+        format: [canvas.width, canvas.height],
+      });
+
+      pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+      pdf.save("resume.pdf");
+    }
   };
 
   return (
@@ -56,7 +69,7 @@ const FinalResumeView = ({
           <div className="flex max-sm:flex-col justify-center gap-8 my-10">
             <Button
               className="flex px-12 py-6 gap-2 rounded-full bg-primary hover:bg-primary focus:ring-4 focus:ring-primary-700/30 text-white"
-              onClick={handleDownload}
+              onClick={downloadPDF}
             >
               <DownloadIcon className="size-6" /> Download
             </Button>

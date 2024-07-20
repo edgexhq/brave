@@ -1,9 +1,6 @@
 import FinalResumeView from "@/components/layout/ResumeView";
 import React from "react";
-import {
-  checkResumeOwnership,
-  fetchResume,
-} from "@/lib/actions/resume.actions";
+import { checkResumeOwnership } from "@/lib/actions/resume.actions";
 import { currentUser } from "@clerk/nextjs/server";
 
 const MyResume = async ({ params }: { params: { id: string } }) => {
