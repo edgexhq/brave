@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     const result = await streamText({
       model: groq.chat("llama3-70b-8192"), // llama3-8b-8192 , llama3-70b-8192, llama2-70b-4096,  mixtral-8x7b-32768, gemma-7b-it
       system:
-        "You are a proffessional job counsellor and psychologist who takes in light and casual way , always ready to help poeple in need of job and career advice, mental health ,etc.",
+        "You are a proffessional job counsellor and psychologist who talks in light and casual way , always ready to help poeple in need of job and career advice, mental health ,etc.",
       messages,
     });
 
